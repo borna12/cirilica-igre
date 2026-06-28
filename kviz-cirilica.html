@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Kviz iz hrvatske ćirilice</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="hrvcirpal-logo.jpg" alt="HRVĆIRPAL" class="header-logo">
+  <h1></h1>
+  <p>Kviz iz hrvatske ćirilice</p>
+</header>
+
+<div class="main-wrap">
+<div class="container">
+
+  <!-- START SCREEN -->
+  <div id="startScreen" class="start-screen">
+    <h2>Izaberi temu ili miješaj sve</h2>
+    <p>Odgovori → odmah objašnjenje i zvuk</p>
+    <div class="topic-grid">
+      <div class="topic-card" onclick="startQuiz('povijest')">
+        <span class="icon">📜</span><span class="label">Povijest</span><span class="info">15 pitanja</span>
+      </div>
+      <div class="topic-card" onclick="startQuiz('abeceda')">
+        <span class="icon">🔡</span><span class="label">Abeceda / Grafija</span><span class="info">12 pitanja</span>
+      </div>
+      <div class="topic-card" onclick="startQuiz('spomenici')">
+        <span class="icon">📜</span><span class="label">Spomenici</span><span class="info">10 pitanja</span>
+      </div>
+      <div class="topic-card" onclick="startQuiz('nazivi')">
+        <span class="icon">📛</span><span class="label">Nazivi</span><span class="info">8 pitanja</span>
+      </div>
+      <div class="topic-card" onclick="startMatching()">
+        <span class="icon">🧩</span><span class="label">Spoji slova</span><span class="info">klikni par</span>
+      </div>
+      <div class="topic-card" onclick="startLetterQuiz()">
+        <span class="icon">🔤</span><span class="label">Nauči slova</span><span class="info">⏱ 10s</span>
+      </div>
+    </div>
+    <button class="mix-btn" onclick="startQuiz('mix')">🎲 Miješaj sve (45 pitanja)</button>
+  </div>
+
+  <!-- QUIZ AREA -->
+  <div id="quizArea" class="quiz-area hidden">
+    <div class="top-bar">
+      <span class="progress-text" id="progressText"></span>
+      <span class="score-badge" id="scoreBadge"></span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+    <div id="questionCard" class="q-card"><div class="inner"></div></div>
+    <div class="controls">
+      <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Sljedeće →</button>
+      <button class="back-btn" onclick="backToStart()">← Natrag</button>
+    </div>
+  </div>
+
+  <!-- MATCHING GAME -->
+  <div id="matchingArea" class="quiz-area hidden">
+    <div class="match-mode-bar" id="matchModeBar">
+      <button class="match-mode-btn active" data-mode="lat" onclick="setMatchMode('lat')">A ↔ Ć</button>
+      <button class="match-mode-btn" data-mode="gla" onclick="setMatchMode('gla')">Ⰰ ↔ Ć</button>
+      <button class="match-mode-btn" data-mode="all" onclick="setMatchMode('all')">sve troje</button>
+    </div>
+    <div class="top-bar">
+      <span class="progress-text" id="matchProgress"></span>
+      <span class="score-badge" id="matchScore"></span>
+    </div>
+    <div class="match-grid" id="matchGrid"></div>
+    <div class="controls">
+      <button class="match-reset" onclick="startMatching()">🔄 Nova runda</button>
+      <button class="back-btn" onclick="backToStart()">← Natrag</button>
+    </div>
+  </div>
+
+  <!-- LETTER QUIZ -->
+  <div id="letterQuizArea" class="quiz-area hidden">
+    <div class="top-bar">
+      <span class="progress-text" id="lqCounter"></span>
+      <span class="score-badge" id="lqScore"></span>
+    </div>
+    <div class="letter-display-wrap">
+      <div class="letter-big" id="letterBig"></div>
+    </div>
+    <div class="feedback-overlay" id="lqFeedback"></div>
+    <div class="letter-options" id="lqOptions"></div>
+    <div class="controls">
+      <button class="next-btn" id="lqNextBtn" onclick="letterQuizNext()">Sljedeće →</button>
+      <button class="back-btn" onclick="backToStart()">← Natrag</button>
+    </div>
+  </div>
+
+  <!-- END SCREEN -->
+  <div id="endScreen" class="end-screen"></div>
+
+</div>
+</div>
+
+<button class="mute-btn" id="muteBtn" onclick="toggleMute()" title="Uključi/isključi zvuk">🔊</button>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Nauči ćirilicu</title>
+<style>
+  :root {
+    --bg: #f4f1e8; --card: #fffef9; --accent: #7b1e1e; --accent2: #2d5a3d;
+    --gold: #b8860b; --text: #2c1810; --muted: #6b5e53; --border: #d4c5a9;
+    --correct: #2d7a3d; --wrong: #a83232; --timer: #c0392b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; overflow: hidden; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    display: flex; flex-direction: column;
+  }
+
+  @font-face {
+    font-family: 'Cirilica';
+    src: url('cirilica.ttf') format('truetype');
+    unicode-range: U+0400-04FF;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    flex-shrink: 0; background: #1a1a1a; color: #fffef9;
+    text-align: center; padding: clamp(.6rem, 1.5vh, 1rem) 1rem;
+    border-bottom: 3px solid var(--gold);
+  }
+  header h1 { font-size: clamp(1.1rem, 2.5vw, 1.6rem); }
+  header p { opacity: .7; font-size: clamp(.7rem, 1.2vw, .82rem); margin-top: .2rem; }
+
+  /* ===== MAIN ===== */
+  .main-wrap { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
+  .container {
+    flex: 1; display: flex; flex-direction: column;
+    max-width: 600px; margin: 0 auto; width: 100%; padding: clamp(.6rem, 1.5vh, 1.2rem);
+  }
+
+  /* ===== START SCREEN ===== */
+  .start-screen {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    align-items: center; text-align: center; gap: 1rem;
+  }
+  .start-screen h2 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--accent); }
+  .start-screen p { color: var(--muted); font-size: clamp(.85rem, 1.3vw, 1rem); max-width: 400px; }
+  .start-btn {
+    background: var(--accent); color: #fff; padding: .8rem 2.5rem; border: none;
+    border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 1.1rem;
+    transition: .15s; user-select: none;
+  }
+  .start-btn:hover { background: #5c1515; }
+  .start-btn:active { transform: scale(.96); }
+
+  /* ===== GAME SCREEN ===== */
+  .game-screen { flex: 1; display: none; flex-direction: column; }
+  .game-screen.show { display: flex; }
+
+  /* Top bar */
+  .game-top {
+    flex-shrink: 0; display: flex; justify-content: space-between; align-items: center;
+    padding: .4rem 0; flex-wrap: wrap; gap: .3rem;
+  }
+  .game-top .q-counter { color: var(--muted); font-weight: 600; font-size: .95rem; }
+  .game-top .score { color: var(--accent2); font-weight: 700; font-size: 1rem; }
+  .game-top .timer {
+    font-weight: 700; font-size: 1.1rem; padding: .2rem .7rem;
+    border-radius: 20px; background: #fef0ef;
+  }
+  .game-top .timer.warning { color: var(--timer); animation: pulse .5s infinite; }
+  @keyframes pulse { 50% { opacity: .5; } }
+
+  .progress-bar-wrap { flex-shrink: 0; height: 4px; background: var(--border); border-radius: 2px; width: 100%; margin-bottom: .5rem; }
+  .progress-bar { height: 100%; background: var(--accent); border-radius: 2px; transition: width .3s; }
+
+  /* Letter display */
+  .letter-display {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    background: var(--card); border: 2px solid var(--border); border-radius: 16px;
+    margin: .5rem 0; min-height: 0;
+  }
+  .letter-big {
+    font-family: 'Cirilica', serif; font-size: clamp(5rem, 15vw, 12rem);
+    font-weight: 400; color: var(--accent); line-height: 1; user-select: none;
+  }
+  .letter-big.both { font-size: clamp(3.5rem, 10vw, 8rem); letter-spacing: .1em; }
+
+  /* Options */
+  .options {
+    flex-shrink: 0; display: grid;
+    grid-template-columns: 1fr 1fr; gap: .6rem; padding: .5rem 0 1rem;
+  }
+  .opt-btn {
+    padding: .9rem; border: 2px solid var(--border); border-radius: 12px;
+    background: var(--card); cursor: pointer; font-weight: 600; font-size: 1.1rem;
+    transition: .1s; text-align: center; user-select: none;
+  }
+  .opt-btn:hover { border-color: var(--gold); background: var(--hover); }
+  .opt-btn:active { transform: scale(.97); }
+  .opt-btn.correct { border-color: var(--correct); background: #e8f5e8; color: var(--correct); }
+  .opt-btn.wrong { border-color: var(--wrong); background: #fde8e8; color: var(--wrong); }
+  .opt-btn.disabled { pointer-events: none; opacity: .8; }
+
+  /* Feedback overlay */
+  .feedback-overlay {
+    flex-shrink: 0; text-align: center; padding: .5rem;
+    font-weight: 700; font-size: 1.1rem; min-height: 2.5rem;
+  }
+  .feedback-overlay.correct { color: var(--correct); }
+  .feedback-overlay.wrong { color: var(--wrong); }
+
+  .next-row { flex-shrink: 0; text-align: center; padding-bottom: .5rem; }
+  .next-btn {
+    display: none; background: var(--accent); color: #fff; border: none;
+    padding: .7rem 2rem; border-radius: 8px; cursor: pointer; font-weight: 700;
+    font-size: 1rem; transition: .15s;
+  }
+  .next-btn.show { display: inline-block; }
+  .next-btn:hover { background: #5c1515; }
+  .quit-btn {
+    display: inline-block; background: var(--border); border: none; color: var(--text);
+    padding: .5rem 1.2rem; border-radius: 6px; cursor: pointer; font-weight: 600;
+    font-size: .82rem; margin-left: .4rem;
+  }
+
+  /* ===== END SCREEN ===== */
+  .end-screen {
+    flex: 1; display: none; flex-direction: column; justify-content: center;
+    align-items: center; text-align: center; gap: .6rem;
+  }
+  .end-screen.show { display: flex; }
+  .big-score { font-size: clamp(2.5rem, 10vw, 5rem); font-weight: 800; }
+  .big-score.good { color: var(--correct); }
+  .big-score.ok { color: var(--gold); }
+  .big-score.poor { color: var(--wrong); }
+
+  @media (max-width: 480px) {
+    .options { grid-template-columns: 1fr 1fr; gap: .4rem; }
+    .opt-btn { padding: .7rem; font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔤 Nauči ćirilicu</h1>
+  <p>Prepoznaj slovo — otkucava vrijeme!</p>
+</header>
+
+<div class="main-wrap">
+<div class="container">
+
+  <!-- START SCREEN -->
+  <div id="startScreen" class="start-screen">
+    <h2>Znaš pogoditi ćirilično slovo?</h2>
+    <p>Prikazat će ti se veliko slovo s pripadajućim malim slovom. Izaberi točan latinični naziv.</p>
+    <button class="start-btn" onclick="startGame()">▶ Započni kviz</button>
+  </div>
+
+  <!-- GAME SCREEN -->
+  <div id="gameScreen" class="game-screen">
+    <div class="game-top">
+      <span class="q-counter" id="qCounter"></span>
+      <span class="timer" id="timer"></span>
+      <span class="score" id="scoreBadge"></span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+
+    <div class="letter-display">
+      <div class="letter-big" id="letterBig"></div>
+    </div>
+
+    <div class="feedback-overlay" id="feedbackOverlay"></div>
+
+    <div class="options" id="optionsGrid"></div>
+
+    <div class="next-row">
+      <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Sljedeće →</button>
+      <button class="quit-btn" onclick="backToStart()">✕ Prekini</button>
+    </div>
+  </div>
+
+  <!-- END SCREEN -->
+  <div id="endScreen" class="end-screen"></div>
+
+</div>
+</div>
+
+<script>
+// Cyrillic letters with their Latin names (for answer options)
+const LETTERS = [
+  {c:'А',l:'а', lat:'A'},{c:'Б',l:'б', lat:'B'},{c:'В',l:'в', lat:'V'},
+  {c:'Г',l:'г', lat:'G'},{c:'Д',l:'д', lat:'D'},{c:'Ђ',l:'ђ', lat:'Đ'},
+  {c:'Е',l:'е', lat:'E'},{c:'Ж',l:'ж', lat:'Ž'},{c:'З',l:'з', lat:'Z'},
+  {c:'И',l:'и', lat:'I'},{c:'Ј',l:'ј', lat:'J'},{c:'К',l:'к', lat:'K'},
+  {c:'Л',l:'л', lat:'L'},{c:'Љ',l:'љ', lat:'Lj'},{c:'М',l:'м', lat:'M'},
+  {c:'Н',l:'н', lat:'N'},{c:'Њ',l:'њ', lat:'Nj'},{c:'О',l:'о', lat:'O'},
+  {c:'П',l:'п', lat:'P'},{c:'Р',l:'р', lat:'R'},{c:'С',l:'с', lat:'S'},
+  {c:'Т',l:'т', lat:'T'},{c:'Ћ',l:'ћ', lat:'Ć'},{c:'У',l:'у', lat:'U'},
+  {c:'Ф',l:'ф', lat:'F'},{c:'Х',l:'х', lat:'H'},{c:'Ц',l:'ц', lat:'C'},
+  {c:'Ч',l:'ч', lat:'Č'},{c:'Џ',l:'џ', lat:'Dž'},{c:'Ш',l:'ш', lat:'Š'},
+];
+
+let questions = [], currentIdx = 0, score = 0, totalQs = 0;
+let timerInterval = null, timeLeft = 0, answered = false;
+
+function shuffle(a) { const r=[...a]; for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];} return r; }
+
+function startGame() {
+  totalQs = 15; // 15 questions per round
+  questions = shuffle(LETTERS).slice(0, totalQs);
+  currentIdx = 0; score = 0; answered = false;
+
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('gameScreen').classList.add('show');
+  document.getElementById('endScreen').classList.remove('show');
+  document.getElementById('endScreen').style.display = 'none';
+
+  showQuestion();
+}
+
+function backToStart() {
+  clearInterval(timerInterval);
+  document.getElementById('startScreen').style.display = '';
+  document.getElementById('gameScreen').classList.remove('show');
+  document.getElementById('endScreen').classList.remove('show');
+  document.getElementById('endScreen').style.display = 'none';
+}
+
+function showQuestion() {
+  if (currentIdx >= questions.length) { showEndScreen(); return; }
+  answered = false; timeLeft = 10;
+  const q = questions[currentIdx];
+
+  // Display letter (uppercase + lowercase)
+  document.getElementById('letterBig').textContent = q.c + q.l;
+  document.getElementById('letterBig').className = 'letter-big both';
+
+  // Generate 4 options: 1 correct + 3 random wrong
+  const correct = q.lat;
+  const wrongs = shuffle(LETTERS.filter(l => l.lat !== correct)).slice(0, 3);
+  const options = shuffle([correct, ...wrongs.map(w => w.lat)]);
+  
+  const grid = document.getElementById('optionsGrid');
+  grid.innerHTML = options.map(o => 
+    `<div class="opt-btn" onclick="selectAnswer(this, '${o}')">${o}</div>`
+  ).join('');
+
+  document.getElementById('feedbackOverlay').textContent = '';
+  document.getElementById('feedbackOverlay').className = 'feedback-overlay';
+  document.getElementById('nextBtn').classList.remove('show');
+
+  updateUI();
+
+  // Start timer
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateUI();
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      if (!answered) timeUp();
+    }
+  }, 1000);
+}
+
+function updateUI() {
+  document.getElementById('qCounter').textContent = `Pitanje ${currentIdx+1}/${totalQs}`;
+  document.getElementById('scoreBadge').textContent = `✅ ${score}`;
+  document.getElementById('progressBar').style.width = `${(currentIdx/totalQs)*100}%`;
+  const timerEl = document.getElementById('timer');
+  timerEl.textContent = `⏱ ${timeLeft}s`;
+  timerEl.className = 'timer' + (timeLeft <= 3 ? ' warning' : '');
+}
+
+function selectAnswer(el, chosen) {
+  if (answered) return;
+  answered = true;
+  clearInterval(timerInterval);
+
+  const q = questions[currentIdx];
+  const correct = q.lat;
+  const opts = document.querySelectorAll('.opt-btn');
+
+  opts.forEach(o => o.classList.add('disabled'));
+  
+  if (chosen === correct) {
+    score++;
+    el.classList.add('correct');
+    document.getElementById('feedbackOverlay').textContent = '✅ Točno!';
+    document.getElementById('feedbackOverlay').className = 'feedback-overlay correct';
+  } else {
+    el.classList.add('wrong');
+    // Highlight the correct one
+    opts.forEach(o => { if (o.textContent.trim() === correct) o.classList.add('correct'); });
+    document.getElementById('feedbackOverlay').textContent = `❌ Točno je: ${correct}`;
+    document.getElementById('feedbackOverlay').className = 'feedback-overlay wrong';
+  }
+
+  document.getElementById('nextBtn').classList.add('show');
+  document.getElementById('nextBtn').textContent = currentIdx+1 < totalQs ? 'Sljedeće →' : 'Vidi rezultat 🏆';
+  updateUI();
+}
+
+function timeUp() {
+  answered = true;
+  const q = questions[currentIdx];
+  const correct = q.lat;
+  const opts = document.querySelectorAll('.opt-btn');
+  opts.forEach(o => {
+    o.classList.add('disabled');
+    if (o.textContent.trim() === correct) o.classList.add('correct');
+  });
+  document.getElementById('feedbackOverlay').textContent = `⏰ Isteklo vrijeme! ${correct}`;
+  document.getElementById('feedbackOverlay').className = 'feedback-overlay wrong';
+  document.getElementById('nextBtn').classList.add('show');
+  document.getElementById('nextBtn').textContent = currentIdx+1 < totalQs ? 'Sljedeće →' : 'Vidi rezultat 🏆';
+}
+
+function nextQuestion() {
+  currentIdx++;
+  if (currentIdx >= totalQs) { showEndScreen(); }
+  else { showQuestion(); }
+}
+
+function showEndScreen() {
+  clearInterval(timerInterval);
+  document.getElementById('gameScreen').classList.remove('show');
+  const end = document.getElementById('endScreen');
+  end.style.display = 'flex'; end.classList.add('show');
+
+  const pct = Math.round((score/totalQs)*100);
+  let cls, msg;
+  if (pct >= 90) { cls='good'; msg='Sjajno! 🎉 Pravi znalac ćirilice!'; }
+  else if (pct >= 70) { cls='ok'; msg='Vrlo dobro! 👍 Još malo vježbe.'; }
+  else if (pct >= 50) { cls='ok'; msg='Dobro! 📚 Probaj ponovo.'; }
+  else { cls='poor'; msg='Ne odustaj! 💪 Vježbaj i nauči.'; }
+
+  end.innerHTML = `
+    <h2 style="color:var(--accent);">🏁 Kraj kviza!</h2>
+    <div class="big-score ${cls}">${score} / ${totalQs}</div>
+    <div style="font-size:1.3rem;font-weight:700;">${pct}%</div>
+    <p style="font-size:1rem;max-width:400px;">${msg}</p>
+    <button class="start-btn" onclick="startGame()">🔄 Igraj ponovo</button>
+    <button class="quit-btn" style="margin-top:.5rem;" onclick="backToStart()">← Početak</button>
+  `;
+}
+</script>
+</body>
+</html>
