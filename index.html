@@ -106,6 +106,13 @@
   </div>
 </div>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="Uvećana slika" onclick="event.stopPropagation()">
+  <div class="lightbox-cap" id="lightboxCap" onclick="event.stopPropagation()"></div>
+  <button class="lightbox-close" onclick="event.stopPropagation(); closeLightbox()">✕</button>
+</div>
+
 <button class="mute-btn" id="muteBtn" onclick="toggleMute()" title="Uključi/isključi zvuk">🔊</button>
 
 <script src="script.js"></script>

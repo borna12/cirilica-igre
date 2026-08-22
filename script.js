@@ -1,9 +1,27 @@
 // ==================== SOUND ENGINE ====================
 let audioCtx = null, muted = false;
-function getCtx() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); if (audioCtx.state === 'suspended') audioCtx.resume(); return audioCtx; }
+function getCtx() {
+  if (!audioCtx) {
+    try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e) { return null; }
+  }
+  if (audioCtx.state === 'suspended') { audioCtx.resume().catch(()=>{}); }
+  return audioCtx;
+}
+// Initialize audio on first user interaction (required by browsers)
+function initAudio() {
+  getCtx();
+  document.removeEventListener('pointerdown', initAudio);
+  document.removeEventListener('keydown', initAudio);
+}
+document.addEventListener('pointerdown', initAudio);
+document.addEventListener('keydown', initAudio);
+
 function playTone(freq, duration, type, vol) {
   if (muted) return;
-  try { const ctx = getCtx(), o = ctx.createOscillator(), g = ctx.createGain();
+  try {
+    const ctx = getCtx();
+    if (!ctx || ctx.state !== 'running') return;
+    const o = ctx.createOscillator(), g = ctx.createGain();
     o.type = type; o.frequency.setValueAtTime(freq, ctx.currentTime);
     g.gain.setValueAtTime(vol, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
     o.connect(g); g.connect(ctx.destination); o.start(); o.stop(ctx.currentTime + duration);
@@ -28,15 +46,15 @@ const QUESTIONS = {
     {q:"Koja tri pisma čine hrvatsku tropismenost?", o:["Glagoljica, ćirilica i arebica","Glagoljica, latinica i ćirilica","Latinica, grčko pismo i ćirilica","Glagoljica, latinica i glagoljski kurziv"], a:1, x:"Hrvatsku kulturnu povijest obilježava tropismenost: istovremena uporaba glagoljice, latinice i ćirilice (bosančice). To je bogatstvo, a ne nedostatak."},
     {q:"Kojim su pismom osmanski krajiški kapetani komunicirali s hrvatskim časnicima?", o:["Latinskim","Turskim (arapskim)","Bosančicom (zapadnom ćirilicom)","Glagoljicom"], a:2, x:"Od 15. Do 19. St. Osmanski su krajiški kapetani s hrvatskim časnicima i vlastima komunicirali bosančicom, najčešće ikavicom. Ta su pisma velike povijesne i literarne vrijednosti."},
     {q:"Što znači da bosančica nije bila kodificirana ni normirana?", o:["Bila je strogo propisana","Učila se na sveučilištima","Bila je narodno pismo, bez službenog standarda","Postojala je samo u tisku"], a:2, x:"Bosančica je bila <i>narodno pismo</i>. Nije bila ni kodificirana, ni normirana, niti nametana školama. Zato je s vremenom došlo do njezine dekadencije, ali je upravo ta neformalnost omogućila široku uporabu."},
-    {q:"Tko je objavio jedini priručnik za učenje bosančice?", o:["Matija Divković","Ivan Berčić","Ćiro Truhelka","Benedikta Zelić-Bučan"], a:1, x:"Ivan Berčić objavio je 1860. <i>Bukvar staroslovenskoga jezika glagolskimi pismeni za čitanje crkvenih knjig</i>. Jedini dosad objavljen priručnik za učenje bosančice.", img:"slike/bercic-bukvar.png", cap:"Stranica Berčićeva Bukvara (1860.), jedinog priručnika za učenje bosančice."},
+    {q:"Tko je objavio jedini priručnik za učenje bosančice?", o:["Matija Divković","Ivan Berčić","Ćiro Truhelka","Benedikta Zelić-Bučan"], a:1, x:"Ivan Berčić objavio je 1860. <i>Bukvar staroslovenskoga jezika glagolskimi pismeni za čitanje crkvenih knjig</i>. Jedini dosad objavljen priručnik za učenje bosančice.", img:"slike/bercic-bukvar.jpg", cap:"Stranica Berčićeva Bukvara (1860.), jedinog priručnika za učenje bosančice."},
     {q:"Na koje se razdoblje odnosi pojam <i>bosančica</i> u užem smislu?", o:["Na svu hrvatsku ćirilicu","Na ćirilsku minuskulu 15. – 19. St.","Na epigrafske natpise 11. – 13. St.","Na tiskanu ćirilicu 16. St."], a:1, x:"Često se pod bosančicom razumijeva hrvatska (zapadna) ćirilica općenito, ali taj naziv u užem smislu označuje <b>ćirilsku minuskulu 15. – 19. Stoljeća</b>."},
     {q:"Zbog čega je bosančica s vremenom počela nestajati?", o:["Zbog zabrane pape","Zbog zahtjeva austrijskih vlasti za latinicom","Zbog dolaska Turaka","Zbog izuma tiska"], a:1, x:"Najteži udarac bosančici zadan je ukidanjem sjemeništa u Priku 1821., zahtjevom austrijskih vlasti da se u matičnim knjigama koristi latinica, te otvaranjem pučkih škola s latinicom i novijom ćirilicom."},
     {q:"Do kada su se u župi Radobilje (kraj Poljica) crkvene knjige pisale bosančicom?", o:["Do 1700.","Do 1821.","Do 1867.","Do 1918."], a:2, x:"Na području starohrvatske župe Radobilje, susjedne Poljičkoj republici, crkvene knjige pisane su arvaticom sve do 1867., a od tada latinicom."},
-    {q:"Na čijem su dvoru pisana ćirilična diplomatska pisma duboko u unutrašnjosti?", o:["Kralja Zvonimira","Bana Kulina","Kralja Matijaša Korvina","Kralja Tomislava"], a:2, x:"Diplomatska prepiska ćirilicom vodila se i na dvoru hrvatsko-ugarskoga kralja Matijaša Korvina. Mnogi plemići 16. st. koristili su ćirilicu, npr. Nikola Jurišić, branitelj Kisega."}
+    {q:"Na čijem su dvoru pisana ćirilična diplomatska pisma duboko u unutrašnjosti?", o:["Kralja Zvonimira","Bana Kulina","Kralja Matijaša Korvina","Kralja Tomislava"], a:2, x:"Diplomatska prepiska ćirilicom vodila se i na dvoru hrvatsko-ugarskoga kralja Matijaša Korvina. Mnogi plemići 16. st. koristili su ćirilicu, npr. Nikola Jurišić, branitelj Kisega.", img:"slike/matijas-korvin.jpg", cap:"Portret kralja Matijaša Korvina, djelo Andree Mantegne (15. st.)."}
   ],
 
   abeceda: [
-    {q:"Koje je tipično slovo za bosančicu koje se od 14. St. Rabi za glasove /ć/ i /đ/?", o:["Jat (ѣ)","Jer (ь)","Đerv (Ꙉ)","Jus (Ѧ)"], a:2, x:"<b>Đerv</b> je najprepoznatljivije slovo bosančice. Od početka 14. St. Rabi se za oba glasa. Iz njega će kasnije u reformiranoj ćirilici nastati slova ć i đ.", img:"slike/matijas-korvin.jpg", cap:"Portret kralja Matijaša Korvina, djelo Andree Mantegne (15. st.)."},
+    {q:"Koje je tipično slovo za bosančicu koje se od 14. St. Rabi za glasove /ć/ i /đ/?", o:["Jat (ѣ)","Jer (ь)","Đerv (Ꙉ)","Jus (Ѧ)"], a:2, x:"<b>Đerv</b> je najprepoznatljivije slovo bosančice. Od početka 14. St. Rabi se za oba glasa. Iz njega će kasnije u reformiranoj ćirilici nastati slova ć i đ."},
     {q:"Kakva su slova bosančice u odnosu na ustavne ćirilične oblike?", o:["Identicalna","Toliko preoblikovana da mala postaju velika i obratno","Bez razlika","Koristi samo tiskana slova"], a:1, x:"Slova bosančice toliko su preoblikovana da često prelaze u suprotnost. Mala postaju velika i obratno."},
     {q:"Koliko nadslovnih znakova ima bosančica u odnosu na standardnu ćirilicu?", o:["Više","Isto","Samo title. Znatno manje","Nema ih"], a:2, x:"U standardnoj ćirilici nad slovima je mnogo znakova, u bosančici <b>samo title</b>. To je ključna grafička razlika."},
     {q:"Na koliko je načina pisan glas /j/ u bosančici?", o:["Na jedan","Na dva","Na tri","Na pet"], a:2, x:"Glas /j/ pisao se na <b>tri načina</b>. Glasovi /lj/ i /nj/ imali su još više varijanti. Pisali su se u mnogo različitih kombinacija."},
@@ -60,11 +78,11 @@ const QUESTIONS = {
     {q:"Na kojem se otoku nalaze Povaljska listina i Povaljski prag?", o:["Hvaru","Korčuli","Braču","Visu"], a:2, x:"Oba spomenika potječu iz Povalja na otoku <b>Braču</b>."},
     {q:"Tko je autor <i>Nauka karstianskoga</i> (1611.)?", o:["Ivan Bandulavić","Pavao Posilović","Matija Divković","Franjo Rački"], a:2, x:"<b>Matija Divković</b>, bosanski franjevac, autor je <i>Nauka karstianskoga za narod slovinski</i> (Venecija, 1611.).", img:"slike/divkovic-nauk-krstjanski.jpg", cap:"Naslovnica Nauka karstianskoga Matije Divkovića (1611.), tiskanog bosančicom."},
     {q:"Na kojem se glagoljskom spomeniku nalaze i ćirilična slova?", o:["Bašćanska ploča","Povaljski prag","Humačka ploča","Povaljska listina"], a:0, x:"Na glagoljskoj <b>Bašćanskoj ploči</b> (~1100.) pojavljuju se i ćirilična slova. Rani suživot dvaju pisama na hrvatskome tlu.", img:"slike/bascanska-ploca.png", cap:"Bašćanska ploča (~1100.), najpoznatiji glagoljski natpis na kojem se javljaju i ćirilična slova."},
-    {q:"Koji dokument svjedoči o postojanju dubrovačke slavenske kancelarije već krajem 12. St.?", o:["Poljički statut","Libro od mnozijeh razloga","Povelja Kulina bana (1189.)","Hvalov zbornik"], a:2, x:"<b>Povelja Kulina bana</b> (1189.) svjedoči o postojanju dubrovačke slavenske kancelarije krajem 12. St. Dubrovnik će kasnije sačuvati najveći broj ćiriličnih spisa na Balkanu."}
+    {q:"Koji dokument svjedoči o postojanju dubrovačke slavenske kancelarije već krajem 12. stoljeća?", o:["Poljički statut","Libro od mnozijeh razloga","Povelja Kulina bana","Hvalov zbornik"], a:2, x:"<b>Povelja Kulina bana</b> (1189.) svjedoči o postojanju dubrovačke slavenske kancelarije krajem 12. stoljeća. Dubrovnik će kasnije sačuvati najveći broj ćiriličnih spisa na Balkanu.", img:"slike/povelja-kulina-bana.jpg", cap:"Povelja Kulina bana (1189.) svjedoči o postojanju dubrovačke slavenske kancelarije već krajem 12. st."}
   ],
 
   nazivi: [
-    {q:"Kako Dmine Papalić (16. St.) naziva pismo kojim piše?", o:["Bosančica","Harvacko pismo","Poljičica","Srbska slova"], a:1, x:"Dmine Papalić, splitski plemić, oko 1510. Prepisuje Hrvatsku kroniku i pismo naziva <b>harvacko pismo</b>. Jedan od najstarijih autohtonih hrvatskih naziva.", img:"slike/povelja-kulina-bana.jpg", cap:"Povelja Kulina bana (1189.) svjedoči o postojanju dubrovačke slavenske kancelarije već krajem 12. st."},
+    {q:"Kako Dmine Papalić (16. St.) naziva pismo kojim piše?", o:["Bosančica","Harvacko pismo","Poljičica","Srbska slova"], a:1, x:"Dmine Papalić, splitski plemić, oko 1510. Prepisuje Hrvatsku kroniku i pismo naziva <b>harvacko pismo</b>. Jedan od najstarijih autohtonih hrvatskih naziva."},
     {q:"Koji naziv za ćirilicu nalazimo u Povaljskoj listini i Poljičkom statutu?", o:["Bosanica","Arvatica / arvacko pismo","Zapadna ćirilica","Hrvatska ćirilica"], a:1, x:"U Povaljskoj listini (1250.) i Poljičkom statutu (1655.) pismo se naziva <b>arvatica</b> ili <b>arvacko pismo</b>. Od pridjeva <i>harvacki</i> (hrvatski)."},
     {q:"Kako je Franjo Rački nazivao bosančicu?", o:["Hrvatsko-bosanska ćirilica","Bosančica","Bosanska ćirilica","Zapadna ćirilica"], a:2, x:"Franjo Rački, jedan od utemeljitelja hrvatske historiografije, upotrebljavao je naziv <b>bosanska ćirilica</b>."},
     {q:"Tko je uveo naziv <i>hrvatsko-bosanska ćirilica</i>?", o:["Vatroslav Jagić","Ivan Kukuljević Sakcinski","Stjepan Ivšić","Ćiro Truhelka"], a:1, x:"Naziv <b>hrvatsko-bosanska ćirilica</b> uveo je Ivan Kukuljević Sakcinski, hrvatski povjesničar i političar 19. Stoljeća."},
@@ -128,7 +146,22 @@ function renderQuestion() {
 
 function imgHTML(item) {
   if (!item.img) return '';
-  return `<div class="q-img-wrap"><img src="${item.img}" alt="Ilustracija" class="q-img"><div class="q-img-cap">${item.cap || ''}</div></div>`;
+  return `<div class="q-img-wrap"><img src="${item.img}" alt="Ilustracija" class="q-img" onclick="openLightbox('${item.img}', '${item.cap || ''}')"><div class="q-img-cap">${item.cap || ''}</div></div>`;
+}
+
+function openLightbox(src, cap) {
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImg');
+  img.onload = function() { lb.classList.remove('hidden'); };
+  img.onerror = function() { lb.classList.remove('hidden'); };
+  img.src = src;
+  document.getElementById('lightboxCap').textContent = cap;
+  // Hide modal behind so it doesn't show through
+  document.getElementById('feedbackModal').classList.add('hidden');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.add('hidden');
 }
 
 function showModal(type, html) {
@@ -142,8 +175,13 @@ function showModal(type, html) {
 }
 
 function modalNext() {
-  document.getElementById('feedbackModal').classList.add('hidden');
-  nextQuestion();
+  const modal = document.getElementById('feedbackModal');
+  modal.classList.add('closing');
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    modal.classList.remove('closing');
+    nextQuestion();
+  }, 250);
 }
 
 function selectAnswer(chosen) {
