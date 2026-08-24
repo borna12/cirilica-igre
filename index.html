@@ -22,16 +22,16 @@
     <h2>Izaberi temu kviza</h2>
     <div class="topic-grid">
       <div class="topic-card" onclick="startQuiz('povijest')">
-        <img src="ikone/povijest.png" alt="Povijest" class="icon-img"><span class="label">Povijest</span><span class="info">15 pitanja</span>
-      </div>
-      <div class="topic-card" onclick="startQuiz('abeceda')">
-        <img src="ikone/grafija.png" alt="Abeceda" class="icon-img"><span class="label">Grafija</span><span class="info">12 pitanja</span>
+        <img src="ikone/povijest.png" alt="Povijest" class="icon-img"><span class="label">Opća povijest</span><span class="info">15 pitanja</span>
       </div>
       <div class="topic-card" onclick="startQuiz('spomenici')">
         <img src="ikone/spomenici.png" alt="Spomenici" class="icon-img"><span class="label">Spomenici</span><span class="info">10 pitanja</span>
       </div>
       <div class="topic-card" onclick="startQuiz('nazivi')">
         <img src="ikone/naziv.png" alt="Nazivi" class="icon-img"><span class="label">Nazivi</span><span class="info">8 pitanja</span>
+      </div>
+      <div class="topic-card" onclick="startQuiz('abeceda')">
+        <img src="ikone/grafija.png" alt="Abeceda" class="icon-img"><span class="label">Grafija</span><span class="info">13 pitanja</span>
       </div>
       <div class="topic-card" onclick="startLetterQuiz()">
         <img src="ikone/nauci slova.png" alt="Nauči slova" class="icon-img"><span class="label">Nauči slova</span><span class="info">15 pitanja</span>
@@ -40,7 +40,7 @@
         <img src="ikone/spoji slova.png" alt="Spoji slova" class="icon-img"><span class="label">Spoji slova</span><span class="info">poveži ćirilicu s drugim pismima</span>
       </div>
     </div>
-    <button class="mix-btn" onclick="startQuiz('mix')"><img src="ikone/kocka.png" alt="Kocka" class="mix-icon"> Odigraj kviz sa svim pitanjima</button>
+    <button class="mix-btn" onclick="startQuiz('mix')"><img src="ikone/kocka.png" alt="Kocka" class="mix-icon"> odigraj kviz sa svim pitanjima</button>
   </div>
 
   <!-- QUIZ AREA -->
@@ -52,8 +52,7 @@
     <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
     <div id="questionCard" class="q-card"><div class="inner"></div></div>
     <div class="controls">
-      <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Sljedeće →</button>
-      <button class="back-btn" onclick="backToStart()">← Natrag</button>
+      <button class="back-btn" onclick="backToStart()">← natrag</button>
     </div>
   </div>
 
@@ -71,7 +70,7 @@
     <div class="match-grid" id="matchGrid"></div>
     <div class="controls">
       <button class="match-reset" onclick="startMatching()">🔄 Nova runda</button>
-      <button class="back-btn" onclick="backToStart()">← Natrag</button>
+      <button class="back-btn" onclick="backToStart()">← natrag</button>
     </div>
   </div>
 
@@ -88,7 +87,7 @@
     <div class="letter-options" id="lqOptions"></div>
     <div class="controls">
       <button class="next-btn" id="lqNextBtn" onclick="letterQuizNext()">Sljedeće →</button>
-      <button class="back-btn" onclick="backToStart()">← Natrag</button>
+      <button class="back-btn" onclick="backToStart()">← natrag</button>
     </div>
   </div>
 
@@ -102,13 +101,16 @@
 <div id="feedbackModal" class="modal-overlay hidden">
   <div class="modal-box" id="modalBox">
     <div class="modal-content" id="modalContent"></div>
-    <button class="next-btn show" id="modalNextBtn" onclick="modalNext()">Sljedeće →</button>
+    <button class="next-btn show" id="modalNextBtn" onclick="modalNext()">sljedeće →</button>
   </div>
 </div>
 
 <!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
-  <img id="lightboxImg" src="" alt="Uvećana slika" onclick="event.stopPropagation()">
+  <div class="lightbox-stage" id="lightboxStage">
+    <img id="lightboxImg" src="" alt="Uvećana slika" draggable="false">
+    <div class="lightbox-zoom-hint" id="lightboxHint">klik za povećanje · dvoklik za izlaz · kotačić/pinch za zoom</div>
+  </div>
   <div class="lightbox-cap" id="lightboxCap" onclick="event.stopPropagation()"></div>
   <button class="lightbox-close" onclick="event.stopPropagation(); closeLightbox()">✕</button>
 </div>
