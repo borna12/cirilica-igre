@@ -283,6 +283,28 @@ body, .q-text, .q-num, .opt, .feedback, .match-tile, .drag-tile, .drag-group {
 .modal-content.wrong { color: var(--wrong); }
 .modal-box .next-btn { margin-top: 1.2rem; font-size: 1.1rem; padding: .9rem 2.4rem; }
 
+/* ===== LETTER COMPARISON TABLE ===== */
+.lq-table-wrap { margin-top: 1rem; overflow-x: auto; }
+.lq-table {
+  width: 100%; border-collapse: collapse; margin: 0 auto;
+  font-size: 1.1rem;
+}
+.lq-table th {
+  background: var(--accent); color: #fff; padding: .5rem .6rem;
+  font-size: .85rem; text-transform: uppercase; letter-spacing: .05em;
+}
+.lq-table td {
+  padding: .7rem .6rem; border: 1px solid var(--border); text-align: center;
+  font-size: 1.6rem; background: var(--card);
+}
+.lq-table th:first-child { border-radius: 8px 0 0 0; }
+.lq-table th:last-child { border-radius: 0 8px 0 0; }
+.lq-cell-cyr { font-family: 'Cirilica', serif; color: var(--accent); }
+.lq-cell-lat { color: var(--accent2); font-size: 1.3rem !important; }
+.lq-cell-gla { font-family: 'FSGLA', sans-serif; color: #6b3fa0; }
+.lq-cell-mod { color: #7d6608; font-family: 'Segoe UI', system-ui, sans-serif; }
+.lq-cell-gr { color: #1a5276; }
+
 /* ===== LIGHTBOX ===== */
 .lightbox {
   position: fixed; inset: 0; z-index: 999;

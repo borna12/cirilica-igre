@@ -47,7 +47,7 @@ const QUESTIONS = {
     {q:"Kojim su pismom osmanski krajiški kapetani komunicirali s hrvatskim časnicima?", o:["latinskim","turskim (arapskim)","bosančicom","glagoljicom"], a:2, x:"Od 15. do 19. stoljeća osmanski su krajiški kapetani s hrvatskim časnicima i vlastima komunicirali bosančicom, najčešće ikavicom. Ta su pisma velike povijesne i literarne vrijednosti."},
     {q:"Što znači da bosančica nije bila kodificirana ni normirana?", o:["bila je strogo propisana","učila se na sveučilištima","bila je narodno pismo, bez službenog standarda","postojala je samo u tisku"], a:2, x:"Bosančica je bila <i>narodno pismo</i>. Nije bila ni službeno propisana, ni normirana, niti nametana školama. Zato je s vremenom došlo do njezina odumiranja, ali je upravo ta neformalnost omogućila široku uporabu."},
     {q:"Tko je objavio jedini priručnik za učenje bosančice?", o:["Matija Divković","Ivan Berčić","Ćiro Truhelka","Benedikta Zelić-Bučan"], a:1, x:"Ivan Berčić objavio je 1860. <i>Bukvar staroslovenskoga jezika glagolskimi pismeni za čitanje crkvenih knjig</i>. Jedini dosad objavljen priručnik za učenje bosančice.", img:"slike/bercic-bukvar.jpg", cap:"Stranica Berčićeva Bukvara (1860.), jedinog priručnika za učenje bosančice."},
-    {q:"Na koje se razdoblje odnosi pojam <i>bosančica</i> u užem smislu?", o:["na svu hrvatsku ćirilicu","na ćirilsku minuskulu 15. – 19. stoljeća","na epigrafske natpise 11. – 13. stoljeća","na tiskanu ćirilicu 16. stoljeća"], a:1, x:"Često se pod bosančicom razumijeva hrvatska (zapadna) ćirilica općenito, ali taj naziv u užem smislu označuje <b>ćirilsku minuskulu 15. – 19. stoljeća</b>."},
+    {q:"Na koje se razdoblje odnosi pojam <i>bosančica</i> u užemu smislu?", o:["na svu hrvatsku ćirilicu","na ćirilsku minuskulu 15. – 19. stoljeća","na epigrafske natpise 11. – 13. stoljeća","na tiskanu ćirilicu 16. stoljeća"], a:1, x:"Često se pod bosančicom razumijeva hrvatska (zapadna) ćirilica općenito, ali taj naziv u užemu smislu označuje <b>ćirilsku minuskulu 15. – 19. stoljeća</b>."},
     {q:"Zbog čega je bosančica s vremenom počela nestajati?", o:["zbog zabrane pape","zbog zahtjeva austrijskih vlasti za latinicom","zbog dolaska turaka","zbog izuma tiska"], a:1, x:"Najteži udarac bosančici zadan je ukidanjem sjemeništa u Priku 1821., zahtjevom austrijskih vlasti da se u matičnim knjigama koristi latinica, te otvaranjem pučkih škola s latinicom i novijom ćirilicom."},
     {q:"Do kada su se u župi Radobilje (kraj Poljica) crkvene knjige pisale bosančicom?", o:["do 1700.","do 1821.","do 1867.","do 1918."], a:2, x:"Na području starohrvatske župe Radobilje, susjedne Poljičkoj republici, crkvene knjige pisane su arvaticom sve do 1867., a od tada latinicom."},
     {q:"Na čijem su dvoru pisana ćirilična diplomatska pisma duboko u unutrašnjosti?", o:["Kralja Zvonimira","Bana Kulina","Kralja Matijaša Korvina","Kralja Tomislava"], a:2, x:"Diplomatska prepiska ćirilicom vodila se i na dvoru hrvatsko-ugarskoga kralja Matijaša Korvina. Mnogi plemići 16. st. koristili su ćirilicu, npr. Nikola Jurišić, branitelj Kisega.", img:"slike/matijas-korvin.jpg", cap:"Portret kralja Matijaša Korvina, djelo Andree Mantegne (15. st.)."}
@@ -84,13 +84,13 @@ const QUESTIONS = {
 
   nazivi: [
     {q:"Kako Dmine Papalić (16. st.) naziva pismo kojim piše?", o:["bosančica","harvacko pismo","poljičica","srbska slova"], a:1, x:"Dmine Papalić, splitski plemić, oko 1510. prepisuje Hrvatsku kroniku i pismo naziva <b>harvacko pismo</b>. Jedan od najstarijih autohtonih hrvatskih naziva."},
-    {q:"Koji naziv za ćirilicu nalazimo u Povaljskoj listini i Poljičkom statutu?", o:["bosanica","arvatica / arvacko pismo","zapadna ćirilica","hrvatska ćirilica"], a:1, x:"U Povaljskoj listini (1250.) i Poljičkom statutu (1655.) pismo se naziva <b>arvatica</b> ili <b>arvacko pismo</b>. Od pridjeva <i>harvacki</i> (hrvatski).", img:"slike/povaljska-poljicki-kolaz.jpg", cap:"Lijevo je Povaljska listina (1250.), a desno Poljički statut (1440.)."},
+    {q:"Koji naziv za ćirilicu nalazimo u Povaljskoj listini i Poljičkom statutu?", o:["bosanica","arvatica ili arvacko pismo","zapadna ćirilica","hrvatska ćirilica"], a:1, x:"U Povaljskoj listini (1250.) i Poljičkom statutu (1655.) pismo se naziva <b>arvatica</b> ili <b>arvacko pismo</b>. Od pridjeva <i>harvacki</i> (hrvatski).", img:"slike/povaljska-poljicki-kolaz.jpg", cap:"Lijevo je Povaljska listina, a desno Poljički statut."},
     {q:"Kako je Franjo Rački nazivao bosančicu?", o:["hrvatsko-bosanska ćirilica","bosančica","bosanska ćirilica","zapadna ćirilica"], a:2, x:"Franjo Rački, jedan od utemeljitelja hrvatske historiografije, upotrebljavao je naziv <b>bosanska ćirilica</b>.", img:"slike/racki.png", cap:"Portret hrvatskoga povjesničara Franje Račkoga (1828. – 1894.), naslikao Theodor Mayerhofer (1897.)."},
     {q:"Tko je uveo naziv <i>hrvatsko-bosanska ćirilica</i>?", o:["Vatroslav Jagić","Ivan Kukuljević Sakcinski","Stjepan Ivšić","Ćiro Truhelka"], a:1, x:"Naziv <b>hrvatsko-bosanska ćirilica</b> uveo je Ivan Kukuljević Sakcinski, hrvatski povjesničar i političar 19. stoljeća.", img:"slike/kukuljevic-sakcinski.png", cap:"Portret Ivana Kukuljevića Sakcinskoga (1816. – 1889.), hrvatskoga povjesničara i političara, naslikao Josef Mukařovský."},
-    {q:"Kako Vatroslav Jagić naziva bosančicu?", o:["hrvatska ćirilica","bosančica","bosansko-dalmatinska ćirilica","poljičica"], a:2, x:"Vatroslav Jagić, najveći slavist svoga doba, upotrebljavao je naziv <b>bosansko-dalmatinska ćirilica</b>.", img:"slike/jagic.jpg", cap:"Vatroslav Jagić (1838. – 1923.), hrvatski jezikoslovac i slavist."},
+    {q:"Kako Vatroslav Jagić naziva bosančicu?", o:["hrvatska ćirilica","bosančica","bosansko-dalmatinska ćirilica","poljičica"], a:2, x:"Vatroslav Jagić, jedan od najvećih slavista svoga doba, upotrebljavao je naziv <b>bosansko-dalmatinska ćirilica</b>.", img:"slike/jagic.jpg", cap:"Vatroslav Jagić (1838. – 1923.), hrvatski jezikoslovac i slavist."},
     {q:"Koji naziv uvodi Stjepan Ivšić?", o:["poljičica","arvatica","zapadna (bosanska) ćirilica","harvacko pismo"], a:2, x:"Stjepan Ivšić, hrvatski jezikoslovac, uveo je naziv <b>zapadna (bosanska) ćirilica</b>.", img:"slike/ivsic.jpg", cap:"Portret hrvatskoga jezikoslovca Stjepana Ivšića (1884. – 1962.)."},
     {q:"Kako Matija Divković naziva pismo kojim piše?", o:["harvacko pismo","bosančica","serbska slova","arvatica"], a:2, x:"Matija Divković pismo naziva <b>serbska slova</b>. Nazivlje je bilo fluidno i ovisilo o autoru i kontekstu."},
-    {q:"Kako je narod u Poljicima nazivao bosančicu?", o:["arvatica","poljička azbukvica / poljičica","bosanska azbukva","harvacko pismo"], a:1, x:"U Poljicima se bosančica nazivala <b>poljička azbukvica</b> ili <b>poljičica</b> (zabilježio Frane Ivanišević)."}
+    {q:"Kako je narod u Poljicima nazivao bosančicu?", o:["arvatica","poljička azbukvica ili poljičica","bosanska azbukva","harvacko pismo"], a:1, x:"U Poljicima se bosančica nazivala <b>poljička azbukvica</b> ili <b>poljičica</b> (zabilježio Frane Ivanišević)."}
   ]
 };
 
@@ -292,6 +292,7 @@ function showModal(type, html) {
   content.className = 'modal-content ' + type;
   content.innerHTML = html;
   btn.textContent = currentIndex+1 < shuffledQuestions.length ? 'sljedeće →' : 'vidi rezultat 🏆';
+  btn.onclick = modalNext;
   modal.classList.remove('hidden');
 }
 
@@ -588,16 +589,16 @@ function updateMatchBar() {
 
 // ==================== LETTER QUIZ ====================
 const LETTERS = [
-  {c:'А',l:'а',lat:'A'},{c:'Б',l:'б',lat:'B'},{c:'В',l:'в',lat:'V'},
-  {c:'Г',l:'г',lat:'G'},{c:'Д',l:'д',lat:'D'},{c:'Ђ',l:'ђ',lat:'Đ'},
-  {c:'Е',l:'е',lat:'E'},{c:'Ж',l:'ж',lat:'Ž'},{c:'З',l:'з',lat:'Z'},
-  {c:'И',l:'и',lat:'I'},{c:'Ј',l:'ј',lat:'J'},{c:'К',l:'к',lat:'K'},
-  {c:'Л',l:'л',lat:'L'},{c:'Љ',l:'љ',lat:'Lj'},{c:'М',l:'м',lat:'M'},
-  {c:'Н',l:'н',lat:'N'},{c:'Њ',l:'њ',lat:'Nj'},{c:'О',l:'о',lat:'O'},
-  {c:'П',l:'п',lat:'P'},{c:'Р',l:'р',lat:'R'},{c:'С',l:'с',lat:'S'},
-  {c:'Т',l:'т',lat:'T'},{c:'Ћ',l:'ћ',lat:'Ć'},{c:'У',l:'у',lat:'U'},
-  {c:'Ф',l:'ф',lat:'F'},{c:'Х',l:'х',lat:'H'},{c:'Ц',l:'ц',lat:'C'},
-  {c:'Ч',l:'ч',lat:'Č'},{c:'Џ',l:'џ',lat:'Dž'},{c:'Ш',l:'ш',lat:'Š'},
+  {c:'А',l:'а',lat:'A a', g:'a', gr:'Α α'},{c:'Б',l:'б',lat:'B b', g:'b', gr:'Β β'},{c:'В',l:'в',lat:'V v', g:'v', gr:'Β β'},
+  {c:'Г',l:'г',lat:'G g', g:'g', gr:'Γ γ'},{c:'Д',l:'д',lat:'D d', g:'d', gr:'Δ δ'},{c:'Ђ',l:'ђ',lat:'Đ đ', g:'J', gr:'—'},
+  {c:'Е',l:'е',lat:'E e', g:'e', gr:'Ε ε'},{c:'Ж',l:'ж',lat:'Ž ž', g:'x', gr:'Ζ ζ'},{c:'З',l:'з',lat:'Z z', g:'z', gr:'Ζ ζ'},
+  {c:'И',l:'и',lat:'I i', g:'i', gr:'Η η'},{c:'Ј',l:'ј',lat:'J j', g:'j', gr:'—'},{c:'К',l:'к',lat:'K k', g:'k', gr:'Κ κ'},
+  {c:'Л',l:'л',lat:'L l', g:'l', gr:'Λ λ'},{c:'Љ',l:'љ',lat:'Lj lj', g:'lj', gr:'—'},{c:'М',l:'м',lat:'M m', g:'m', gr:'Μ μ'},
+  {c:'Н',l:'н',lat:'N n', g:'n', gr:'Ν ν'},{c:'Њ',l:'њ',lat:'Nj nj', g:'nj', gr:'—'},{c:'О',l:'о',lat:'O o', g:'o', gr:'Ο ο'},
+  {c:'П',l:'п',lat:'P p', g:'p', gr:'Π π'},{c:'Р',l:'р',lat:'R r', g:'r', gr:'Ρ ρ'},{c:'С',l:'с',lat:'S s', g:'s', gr:'Σ σ'},
+  {c:'Т',l:'т',lat:'T t', g:'t', gr:'Τ τ'},{c:'Ћ',l:'ћ',lat:'Ć ć', g:'J', gr:'—'},{c:'У',l:'у',lat:'U u', g:'u', gr:'Υ υ'},
+  {c:'Ф',l:'ф',lat:'F f', g:'f', gr:'Φ φ'},{c:'Х',l:'х',lat:'H h', g:'h', gr:'Χ χ'},{c:'Ц',l:'ц',lat:'C c', g:'c', gr:'—'},
+  {c:'Ч',l:'ч',lat:'Č č', g:'C', gr:'—'},{c:'Џ',l:'џ',lat:'Dž dž', g:'dZ', gr:'—'},{c:'Ш',l:'ш',lat:'Š š', g:'S', gr:'—'},
 ];
 const LQ_TOTAL = 15;
 let lqQuestions = [], lqIdx = 0, lqScore = 0, lqTimer = null, lqAnswered = false;
@@ -642,20 +643,53 @@ function lqSelect(el, chosen) {
   if (chosen === correct) {
     lqScore++; soundCorrect();
     el.classList.add('correct');
-    document.getElementById('lqFeedback').textContent = '✅ Točno!';
-    document.getElementById('lqFeedback').className = 'feedback-overlay correct';
+    lqShowModal('correct', '✅ <b>Točno!</b>');
   } else {
     soundWrong();
     el.classList.add('wrong');
     document.querySelectorAll('.lq-opt').forEach(o => {
       if (o.textContent.trim() === correct) o.classList.add('correct');
     });
-    document.getElementById('lqFeedback').textContent = `❌ Točan odgovor: ${correct}`;
-    document.getElementById('lqFeedback').className = 'feedback-overlay wrong';
+    lqShowModal('wrong', '❌ <b>Netočno.</b> Točan odgovor: <b>' + correct + '</b>');
   }
-  document.getElementById('lqNextBtn').classList.add('show');
-  document.getElementById('lqNextBtn').textContent = lqIdx+1 < LQ_TOTAL ? 'Sljedeće →' : 'Vidi rezultat 🏆';
   document.getElementById('lqScoreNum').textContent = `${lqScore}`;
+}
+
+function lqShowModal(type, msg) {
+  const modal = document.getElementById('feedbackModal');
+  const content = document.getElementById('modalContent');
+  const btn = document.getElementById('modalNextBtn');
+  const q = lqQuestions[lqIdx];
+  content.className = 'modal-content ' + type;
+  content.innerHTML = msg + lqCompareTable(q);
+  btn.textContent = lqIdx+1 < LQ_TOTAL ? 'sljedeće →' : 'vidi rezultat 🏆';
+  btn.onclick = lqModalNext;
+  modal.classList.remove('hidden');
+}
+
+function lqCompareTable(q) {
+  return `<div class="lq-table-wrap">
+    <table class="lq-table">
+      <tr><th>Hrvatska ćirilica</th><th>Latinica</th><th>Glagoljica</th><th>Suvremena ćirilica</th><th>Grčki</th></tr>
+      <tr>
+        <td class="lq-cell-cyr">${q.c} ${q.l}</td>
+        <td class="lq-cell-lat">${q.lat}</td>
+        <td class="lq-cell-gla">${q.g}</td>
+        <td class="lq-cell-mod">${q.c} ${q.l}</td>
+        <td class="lq-cell-gr">${q.gr}</td>
+      </tr>
+    </table>
+  </div>`;
+}
+
+function lqModalNext() {
+  const modal = document.getElementById('feedbackModal');
+  modal.classList.add('closing');
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    modal.classList.remove('closing');
+    letterQuizNext();
+  }, 250);
 }
 
 function letterQuizNext() {
