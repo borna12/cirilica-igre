@@ -21,11 +21,17 @@
   <div id="startScreen" class="start-screen">
     <h2>Izaberi temu kviza</h2>
     <div class="topic-grid">
+      <div class="topic-card" onclick="startQuiz('opcenito')">
+        <img src="ikone/povijest.png" alt="Općenito o ćirilici" class="icon-img"><span class="label">Općenito o ćirilici</span><span class="info">14 pitanja</span>
+      </div>
       <div class="topic-card" onclick="startQuiz('povijest')">
-        <img src="ikone/povijest.png" alt="Povijest" class="icon-img"><span class="label">Opća povijest</span><span class="info">35 pitanja</span>
+        <img src="ikone/grafija.png" alt="Ćirilica u Hrvatskoj" class="icon-img"><span class="label">Ćirilica u Hrvatskoj</span><span class="info">29 pitanja</span>
       </div>
       <div class="topic-card" onclick="startQuiz('spomenici')">
         <img src="ikone/spomenici.png" alt="Spomenici" class="icon-img"><span class="label">Spomenici</span><span class="info">19 pitanja</span>
+      </div>
+      <div class="topic-card" onclick="startNames()">
+        <img src="ikone/naziv.png" alt="Nazivi" class="icon-img"><span class="label">Nazivi</span><span class="info">označi sve točne nazive</span>
       </div>
       <div class="topic-card" onclick="startLetterQuiz()">
         <img src="ikone/nauci slova.png" alt="Nauči slova" class="icon-img"><span class="label">Nauči slova</span><span class="info">15 pitanja</span>
@@ -34,7 +40,7 @@
         <img src="ikone/spoji slova.png" alt="Spoji slova" class="icon-img"><span class="label">Spoji slova</span><span class="info">poveži ćirilicu s drugim pismima</span>
       </div>
     </div>
-    <button class="mix-btn" onclick="startQuiz('mix')"><img src="ikone/kocka.png" alt="Kocka" class="mix-icon"> odigraj kviz sa svim pitanjima</button>
+    <button class="impressum-btn" onclick="openImpressum()">ⓘ Impressum i literatura</button>
   </div>
 
   <!-- QUIZ AREA -->
@@ -85,6 +91,15 @@
     </div>
   </div>
 
+  <!-- NAZIVI -->
+  <div id="namesArea" class="quiz-area hidden">
+    <div id="namesCard" class="q-card topic-nazivi"><div class="inner"></div></div>
+    <div class="controls">
+      <button class="next-btn show" id="namesSubmit" onclick="submitNames()">Potvrdi</button>
+      <button class="back-btn" onclick="backToStart()">← natrag</button>
+    </div>
+  </div>
+
   <!-- END SCREEN -->
   <div id="endScreen" class="end-screen"></div>
 
@@ -96,6 +111,47 @@
   <div class="modal-box" id="modalBox">
     <div class="modal-content" id="modalContent"></div>
     <button class="next-btn show" id="modalNextBtn" onclick="modalNext()">sljedeće →</button>
+  </div>
+</div>
+
+<!-- IMPRESSUM -->
+<div id="impressumModal" class="modal-overlay hidden" onclick="if(event.target===this) closeImpressum()">
+  <div class="modal-box impressum-box" role="dialog" aria-modal="true" aria-labelledby="impressumTitle">
+    <button class="impressum-close" onclick="closeImpressum()" aria-label="Zatvori">✕</button>
+    <h2 id="impressumTitle">Impressum</h2>
+    <dl class="impressum-list">
+      <dt>Autor igre</dt>
+      <dd><a href="https://stin.hr/portfolio-items/dr-sc-josip-mihaljevic/" target="_blank" rel="noopener">Josip Mihaljević</a></dd>
+      <dt>Suradnici</dt>
+      <dd><a href="https://stin.hr/portfolio-items/dr-sc-ivan-botica/" target="_blank" rel="noopener">Ivan Botica</a></dd>
+      <dd><a href="https://stin.hr/portfolio-items/dr-sc-kristian-paskojevic/" target="_blank" rel="noopener">Kristian Paskojević</a></dd>
+    </dl>
+
+    <h3>Literatura</h3>
+    <ul class="biblio">
+      <li>Brković, M. (2005). Zadarsko-poljičke isprave iz XVIII. stoljeća. <i>Radovi Zavoda za povijesne znanosti HAZU u Zadru</i>, (47), 247–289. <a href="https://hrcak.srce.hr/file/13309" target="_blank" rel="noopener">https://hrcak.srce.hr/file/13309</a></li>
+      <li>Damjanović, S. (2012). Hrvatska ćirilična baština u povijesti hrvatske kulture i njezino mjesto u hrvatskoj filologiji. <i>Hrvatska revija</i>, 12(4), 4–7. <a href="https://hrcak.srce.hr/138388" target="_blank" rel="noopener">https://hrcak.srce.hr/138388</a></li>
+      <li>Damjanović, S. (Ur.). (2012). <i>Hrvatska ćirilična baština: Knjiga sažetaka. Međunarodni znanstveni skup povodom 500. obljetnice tiskanja prve hrvatske ćirilične knjige</i>. Hrvatska akademija znanosti i umjetnosti. <a href="https://info.hazu.hr/upload/file/Mediji_12/Cirilicna%20bastina%20knj%20blok%20i%20omot%20za%20web.pdf" target="_blank" rel="noopener">https://info.hazu.hr/upload/file/Mediji_12/Cirilicna bastina knj blok i omot za web.pdf</a></li>
+      <li>Kardaš, M. (2025). Važan doprinos proučavanju ćiriličnog naslijeđa [Prikaz knjige <i>Srednjovjekovna dubrovačka slavenska kancelarija</i>, K. Paskojević]. <i>Slovo</i>, 75, 210–214. <a href="https://stin.hr/novosti/izdan-75-svezak-znanstvenoga-casopisa-slovo/" target="_blank" rel="noopener">https://stin.hr/novosti/izdan-75-svezak-znanstvenoga-casopisa-slovo/</a></li>
+      <li>Kovačić, S. (2001). Bosančica ili hrvatska ćirilica [Prikaz knjige <i>Bosančica ili hrvatska ćirilica u srednjoj Dalmaciji</i>, B. Zelić-Bučan]. <i>Crkva u svijetu</i>, 36(1), 112–117. <a href="https://hrcak.srce.hr/39062" target="_blank" rel="noopener">https://hrcak.srce.hr/39062</a></li>
+      <li>Midžić, F. (2018). Bosančica (zapadna ćirilica) kroz odabrana krajišnička pisma. <i>MemorabiLika</i>, 1(1), 48–62. <a href="https://hrcak.srce.hr/file/331553" target="_blank" rel="noopener">https://hrcak.srce.hr/file/331553</a></li>
+      <li>Nakaš, L. (2010). <i>Jezik i grafija krajišničkih pisama</i>. Slavistički komitet. <a href="https://slavistickikomitet.ba/bosnistika-knjige/4.%20Jezik%20i%20grafija%20kraji%C5%A1ni%C4%8Dkih%20pisama.pdf" target="_blank" rel="noopener">https://slavistickikomitet.ba/bosnistika-knjige/</a></li>
+      <li>Paskojević, K. (2015). Paleografsko istraživanje ćirilične diplomatske minuskule na trima dokumentima o otkupu Sokol grada. <i>Anali Zavoda za povijesne znanosti Hrvatske akademije znanosti i umjetnosti u Dubrovniku</i>, 53(1), 31–77. <a href="https://hrcak.srce.hr/137818" target="_blank" rel="noopener">https://hrcak.srce.hr/137818</a></li>
+      <li>Paskojević, K. (2024). <i>Srednjovjekovna dubrovačka slavenska kancelarija: Dinamika pisma u ćiriličnim ispravama Dubrovačkoga arhiva</i>. Hrvatska sveučilišna naklada; Staroslavenski institut.</li>
+      <li>Truhelka, Ć. (1889). Bosančica: Prinos bosanskoj paleografiji. <i>Glasnik Zemaljskoga muzeja u Bosni i Hercegovini</i>, 1(4), 65–83. <a href="https://archive.org/details/truhelka-ciro-bosancica" target="_blank" rel="noopener">https://archive.org/details/truhelka-ciro-bosancica</a></li>
+      <li>Zelić-Bučan, B. (2000). <i>Bosančica ili hrvatska ćirilica u srednjoj Dalmaciji</i> (2. izd.). Državni arhiv u Splitu.</li>
+      <li>Žagar, M., i Paskojević, K. (2014). Ćiriličke isprave dubrovačke kancelarije XV. stoljeća između minuskule i kurziva. <i>Filologija</i>, (62), 221–246. <a href="https://hrcak.srce.hr/138399" target="_blank" rel="noopener">https://hrcak.srce.hr/138399</a></li>
+    </ul>
+
+    <h3>Hrvatska enciklopedija, mrežno izdanje</h3>
+    <ul class="biblio">
+      <li>Leksikografski zavod Miroslav Krleža. (2013–2024). Bosančica. U <i>Hrvatska enciklopedija, mrežno izdanje</i>. Preuzeto 6. listopada 2026. s <a href="https://www.enciklopedija.hr/clanak/bosancica" target="_blank" rel="noopener">https://www.enciklopedija.hr/clanak/bosancica</a></li>
+      <li>Leksikografski zavod Miroslav Krleža. (2013–2024). Ćiril i Metod, sv. U <i>Hrvatska enciklopedija, mrežno izdanje</i>. Preuzeto 6. listopada 2026. s <a href="https://www.enciklopedija.hr/natuknica.aspx?id=13585" target="_blank" rel="noopener">https://www.enciklopedija.hr/natuknica.aspx?id=13585</a></li>
+      <li>Leksikografski zavod Miroslav Krleža. (2013–2024). Ćirilica. U <i>Hrvatska enciklopedija, mrežno izdanje</i>. Preuzeto 6. listopada 2026. s <a href="https://www.enciklopedija.hr/clanak/cirilica" target="_blank" rel="noopener">https://www.enciklopedija.hr/clanak/cirilica</a></li>
+      <li>Leksikografski zavod Miroslav Krleža. (2013–2024). Glagoljica. U <i>Hrvatska enciklopedija, mrežno izdanje</i>. Preuzeto 6. listopada 2026. s <a href="https://www.enciklopedija.hr/clanak/glagoljica" target="_blank" rel="noopener">https://www.enciklopedija.hr/clanak/glagoljica</a></li>
+      <li>Leksikografski zavod Miroslav Krleža. (2013–2024). Kliment Ohridski, sv. U <i>Hrvatska enciklopedija, mrežno izdanje</i>. Preuzeto 6. listopada 2026. s <a href="https://www.enciklopedija.hr/natuknica.aspx?id=31899" target="_blank" rel="noopener">https://www.enciklopedija.hr/natuknica.aspx?id=31899</a></li>
+    </ul>
+    <div class="impressum-actions"><button class="mix-btn" onclick="closeImpressum()">Zatvori</button></div>
   </div>
 </div>
 

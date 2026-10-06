@@ -37,16 +37,13 @@ const QUESTIONS = {
   povijest: [
     {q:"Na osnovi kojega pisma nastaje ćirilica?", o:["latinskoga", "grčkoga alfabeta", "glagoljice", "feničkoga pisma"], a:1, x:"Ćirilica je grčki alfabet prilagođen za slavenski jezik krajem 9. stoljeća u Bugarskoj."},
     {q:"Koje je godine ćirilica proglašena službenim pismom Bugarskoga Carstva?", o:["863.", "885.", "893.", "925."], a:2, x:"Proglašenje ćirilice službenim pismom Bugarskoga Carstva 893. godine presudno je utjecalo na njezino širenje među slavenskim narodima."},
-    {q:"Tko je uveo naziv <i>bosančica</i>?", o:["Franjo Rački", "Vatroslav Jagić", "Ćiro Truhelka", "Ivan Kukuljević Sakcinski"], a:2, x:"Naziv <i>bosančica</i> uveo je hrvatski arheolog i paleograf Ćiro Truhelka 1889. godine u radu <i>Bosančica: Prinos bosanskoj paleografiji</i>.", img:"slike/truhelka.jpg", cap:"Ćiro Truhelka (1865. – 1942.), hrvatski arheolog i povjesničar koji je uveo naziv bosančica. Slika biste iz Osijeka."},
     {q:"Od kojega do kojega se stoljeća hrvatska ćirilica rabila među Hrvatima?", o:["10. – 15. stoljeća", "12. – 19. stoljeća", "14. – 17. stoljeća", "11. – 16. stoljeća"], a:1, x:"Hrvatska ćirilica rabila se od 12. do 19. stoljeća, a u nekim krajevima (npr. Župa Radobilje kraj Poljica) u crkvenim knjigama sve do 1867. Sporadično i u 20. stoljeću."},
     {q:"Koja su tri osnovna geografska tipa hrvatske ćirilice?", o:["zagrebački, splitski, osječki", "bosanski, dubrovački, poljički (srednjodalmatinski)", "slavonski, lički, istarski", "hercegovački, sarajevski, mostarski"], a:1, x:"Ivan Berčić je 1860. u svom <i>Bukvaru</i> podijelio bosančicu na tri geografske inačice: bosansku, dubrovačku i poljičku (srednjodalmatinsku)."},
     {q:"U kojem se hrvatskom gradu čuva najveći broj ćiriličnih spisa na Balkanu?", o:["Zagreb", "Split", "Zadar", "Dubrovnik"], a:3, x:"U Državnome arhivu u Dubrovniku sačuvan je najveći broj ćiriličnih spisa na čitavome Balkanu. Po nekim procjenama čak 10 000 dokumenata."},
-    {q:"Kako su Poljičani nazivali ćirilicu?", o:["bosančicom", "poljičicom", "glagoljicom", "arvaticom"], a:2, x:"Poljičani su ćirilicu nazivali <i>glagoljicom</i>. Takva zamjena naziva dvaju slavenskih pisama nije iznimka. U Dubrovniku je naziv <i>presbyteri chiurillice</i> označavao popove glagoljaše."},
     {q:"Koja tri pisma čine hrvatsku tropismenost?", o:["glagoljica, ćirilica i arebica", "glagoljica, latinica i ćirilica", "latinica, grčko pismo i ćirilica", "glagoljica, latinica i glagoljski kurziv"], a:1, x:"Hrvatsku kulturnu povijest obilježava tropismenost: istovremena uporaba glagoljice, latinice i ćirilice (bosančice). To je bogatstvo, a ne nedostatak."},
     {q:"Kojim su pismom osmanski krajiški kapetani komunicirali s hrvatskim časnicima?", o:["latinskim", "turskim (arapskim)", "bosančicom", "glagoljicom"], a:2, x:"Od 15. do 19. stoljeća osmanski su krajiški kapetani s hrvatskim časnicima i vlastima komunicirali bosančicom, najčešće ikavicom. Ta su pisma velike povijesne i literarne vrijednosti."},
     {q:"Što znači da bosančica nije bila kodificirana ni normirana?", o:["bila je strogo propisana", "učila se na sveučilištima", "bila je narodno pismo, bez službene norme", "postojala je samo u tisku"], a:2, x:"Bosančica je bila <i>narodno pismo</i>. Nije bila ni službeno propisana, ni normirana, niti nametana školama. Zato je s vremenom došlo do njezina odumiranja, ali je upravo ta neformalnost omogućila široku uporabu."},
     {q:"Tko je objavio jedini priručnik za učenje bosančice?", o:["Matija Divković", "Ivan Berčić", "Ćiro Truhelka", "Benedikta Zelić-Bučan"], a:1, x:"Ivan Berčić objavio je 1860. <i>Bukvar staroslovenskoga jezika glagolskimi pismeni za čitanje crkvenih knjig</i>. Jedini dosad objavljen priručnik za učenje bosančice.", img:"slike/bercic-bukvar.jpg", cap:"Stranica Berčićeva Bukvara (1860.), jedinog priručnika za učenje bosančice."},
-    {q:"Na koje se razdoblje odnosi pojam <i>bosančica</i> u užemu smislu?", o:["na svu hrvatsku ćirilicu", "na ćirilsku minuskulu 15. – 19. stoljeća", "na epigrafske natpise 11. – 13. stoljeća", "na tiskanu ćirilicu 16. stoljeća"], a:1, x:"Često se pod bosančicom razumijeva hrvatska (zapadna) ćirilica općenito, ali taj naziv u užemu smislu označuje <b>ćirilsku minuskulu 15. – 19. stoljeća</b>."},
     {q:"Zbog čega je bosančica s vremenom počela nestajati?", o:["zbog zabrane pape", "zbog zahtjeva austrijskih vlasti za latinicom", "zbog dolaska turaka", "zbog izuma tiska"], a:1, x:"Najteži udarac bosančici zadan je ukidanjem sjemeništa u Priku 1821., zahtjevom austrijskih vlasti da se u matičnim knjigama koristi latinica, te otvaranjem pučkih škola s latinicom i novijom ćirilicom."},
     {q:"Do kada su se u župi Radobilje (kraj Poljica) crkvene knjige pisale bosančicom?", o:["do 1700.", "do 1821.", "do 1867.", "do 1918."], a:2, x:"Na području starohrvatske župe Radobilje, susjedne Poljičkoj republici, crkvene knjige pisane su arvaticom sve do 1867., a od tada latinicom."},
     {q:"Na čijem su dvoru pisana ćirilična diplomatska pisma duboko u unutrašnjosti?", o:["Kralja Zvonimira", "Bana Kulina", "Kralja Matijaša Korvina", "Kralja Tomislava"], a:2, x:"Diplomatska prepiska ćirilicom vodila se i na dvoru hrvatsko-ugarskoga kralja Matijaša Korvina. Mnogi plemići 16. st. koristili su ćirilicu, npr. Nikola Jurišić, branitelj Kisega.", img:"slike/matijas-korvin.jpg", cap:"Portret kralja Matijaša Korvina, djelo Andree Mantegne (15. st.)."},
@@ -61,15 +58,12 @@ const QUESTIONS = {
     {q:"Koliko nadslovnih znakova ima bosančica u odnosu na uobičajenu ćirilicu?", o:["više", "isto", "samo title. znatno manje", "nema ih"], a:2, x:"U uobičajenoj ćirilici nad slovima je mnogo znakova, u bosančici <b>samo title</b>. To je ključna grafička razlika."},
     {q:"Sadrži li bosančica slova koja se drugdje u ćirilici ne pojavljuju?", o:["ne", "samo u brojevnome sustavu", "da, u svojoj grafiji", "samo u tiskanim knjigama"], a:2, x:"Grafija bosančice sadrži <b>slova koja se drugdje u ćirilici ne pojavljuju</b>. To je jedna od njezinih najvažnijih paleografskih osobitosti."},
     {q:"Kakav je odnos bosančice prema glagoljici?", o:["Nema veze", "Općenito je izražen utjecaj glagoljice. Na slova i brojevni sustav", "Bosančica je izravno nastala iz glagoljice", "Samo su brojevi isti"], a:1, x:"Općenito je izražen <b>utjecaj glagoljice</b> na bosančicu. Brojevni sustav je pod utjecajem glagoljice, ali u cjelini se ne poklapa ni s ćirilicom ni s glagoljicom."},
-    {q:"Pod kojim su nazivom muslimani u Bosni pisali bosančicu?", o:["arebica", "begovica", "alhamijado", "hurufatica"], a:1, x:"Muslimani su u Bosni bosančicu nazivali <b>begovica</b>. Bosančica je bila pismo svih triju konfesija: katolika, pravoslavnih i muslimana."},
     {q:"Koja tri drevna pisma dijele gotovo jednak oblik za slovo „Š\" (Ш)?", o:["Ćirilica, glagoljica i hebrejski alfabet", "Armenski alfabet, ćirilica i glagoljica", "Ćirilica, glagoljica i grčki alfabet", "Arapsko pismo, ćirilica i glagoljica"], a:0, x:"Slovo <b>Š (Ш)</b> gotovo je jednako u ćirilici, glagoljici i hebrejskom alfabetu. To je jedan od zanimljivih primjera sličnosti među drevnim pismima."},
     {q:"Kada se na području Hrvatske i Bosne razvio bosanički brzopis?", o:["prije turskih osvajanja", "nakon završetka turskih osvajanja", "u 12. stoljeću", "u 19. stoljeću"], a:1, x:"Kurziv se nije stigao razviti do konačnoga završetka turskih osvajanja. Nakon toga razvija se <b>bosanički brzopis</b>, koji sadržava osnovne forme minuskule oblikovane prije sloma Bosanskoga Kraljevstva (Paskojević 2024)."},
-    {q:"Što je bilo uzor i predložak ćiriličnomu ustavu?", o:["latinična uncijala", "dvolinijsko grčko uncijalno pismo", "glagoljica", "hebrejsko pismo"], a:1, x:"Uzor i predložak ćiriličnomu ustavu bilo je <b>dvolinijsko grčko uncijalno pismo</b>, s kojim ćirilica dijeli brojne grafemske sličnosti, uključujući jednake slovne oblike poput a, v, g, d, e (Paskojević 2024)."},
-    {q:"Kako je narod u Poljicima nazivao bosančicu?", o:["arvatica", "poljička azbukvica ili poljičica", "bosanska azbukva", "harvacko pismo"], a:1, x:"U Poljicima se bosančica nazivala <b>poljička azbukvica</b> ili <b>poljičica</b> (zabilježio Frane Ivanišević)."},
+    {q:"Što je bilo uzor i predložak ćiriličnomu ustavu?", o:["latinična uncijala", "grčka uncijala", "glagoljica", "hebrejsko pismo"], a:1, x:"Uzor i predložak ćiriličnomu ustavu bila je <b>grčka uncijala</b> (svečano pismo velikih, zaobljenih slova pisanih između dviju crta), s kojim ćirilica dijeli brojne grafemske sličnosti, uključujući jednake slovne oblike poput a, v, g, d, e (Paskojević 2024)."},
     {q:"Kojim su se slavenskim nazivima u 14. stoljeću označavali pisari u Dubrovniku?", o:["notarius, cancellarius i scribanus", "gramatik, kanžilijer i dijak", "kancelar, pisar i bilježnik", "dijak, pop i kaluder"], a:1, x:"Uz latinske titule (notarius, cancellarius, scribanus, scriba sclauonicus) pisari su se označavali i slavenskim nazivima: <b>gramatik, kanžilijer ili dijak</b> (Paskojević 2024)."},
-    {q:"Koji je naziv najviše zaživio među brojnim nazivima za proučavani pismovni pojav?", o:["arvatica", "poljičica", "bosančica", "srpska diplomatska minuskula"], a:2, x:"U filologiji je prisutan niz naziva (zapadna ćirilica, bosančica, arvatica, srpska diplomatska minuskula, hrvatska ćirilica, poljičica), a naziv <b>bosančica</b> najviše je zaživio kao naziv proučavanoga pismovnog pojav (Paskojević 2024)."},
     {q:"Kako je Josip Vrana nazivao poslovno pismo dubrovačke kancelarije?", o:["diplomatičkom minuskulom", "poluminuskulom", "bosančicom", "kurzivom"], a:1, x:"Josip Vrana nazivao je tu vrstu poslovnoga pisma <b>poluminuskulom</b>, što pokazuje koliko su velika bila neslaganja oko nazivlja (Vrana 1957, prema Paskojević 2024)."},
-    {q:"Koji su sve nazivi za hrvatsku ćirilicu (bosančicu)?", o:["harvacko pismo, arvatica, bosanska ćirilica, hrvatsko-bosanska ćirilica, bosansko-dalmatinska ćirilica, zapadna (bosanska) ćirilica, serbska slova i poljička azbukvica", "harvacko pismo, arvatica, bosanska ćirilica, glagoljica, latinica, arebica, grčko pismo i hebrejsko pismo", "harvacko pismo, poljička azbukvica, zapadna (bosanska) ćirilica, istočna ćirilica, južna ćirilica, sjeverna ćirilica, gornja ćirilica i donja ćirilica", "harvacko pismo, hrvatsko-bosanska ćirilica, bosansko-dalmatinska ćirilica, hrvatska latinica, bosanska latinica, dalmatinska latinica, slavonska latinica i istarska latinica"], a:0, x:"Hrvatska ćirilica imala je mnogo naziva:<br>• <b>harvacko pismo</b> — Dmine Papalić, splitski plemić, oko 1510. za pismo kojim prepisuje Hrvatsku kroniku<br>• <b>arvatica</b> ili <b>arvacko pismo</b> — u Povaljskoj listini (1250.) i Poljičkom statutu (1655.), od pridjeva <i>harvacki</i> (hrvatski)<br>• <b>bosanska ćirilica</b> — Franjo Rački u 19. stoljeću<br>• <b>hrvatsko-bosanska ćirilica</b> — Ivan Kukuljević Sakcinski u 19. stoljeću<br>• <b>bosansko-dalmatinska ćirilica</b> — Vatroslav Jagić u 19. stoljeću<br>• <b>zapadna (bosanska) ćirilica</b> — Stjepan Ivšić u 20. stoljeću<br>• <b>serbska slova</b> — Matija Divković u 17. stoljeću<br>• <b>poljička azbukvica</b> ili <b>poljičica</b> — narod u Poljicima (zabilježio Frane Ivanišević).", img:"slike/jagic.jpg", cap:"Vatroslav Jagić (1838. – 1923.), hrvatski jezikoslovac i slavist, upotrebljavao je naziv bosansko-dalmatinska ćirilica."},
+    {q:"Gdje se nalazi najzapadniji zapis ćiriličnih slova na hrvatskim prostorima?", o:["u Bašci na Krku", "u Svetom Petru u Šumi u Istri", "u Kninu", "u Plastovu kraj Skradina"], a:1, x:"Riječ AMENЪ na <b>Supetarskom ulomku</b> iz 12. stoljeća, iz <b>Svetoga Petra u Šumi</b>, najzapadniji je zapis ćiriličnih slova na hrvatskim prostorima (Damjanović 2012)."},
   ],
   spomenici: [
     {q:"Koji je najstariji datirani cjeloviti hrvatski ćirilični natpis?", o:["Bašćanska ploča", "Humačka ploča", "Povaljski prag", "Povelja Kulina bana"], a:2, x:"<b>Povaljski prag</b> iz 1184. najstariji je datirani cjeloviti hrvatski ćirilični natpis."},
@@ -92,10 +86,27 @@ const QUESTIONS = {
     {q:"Koji je car poslije 1230. dao Dubrovčanima slobodu trgovine?", o:["Ivan Asen II.", "Stefan Dušan", "Mehmed II.", "Bajazit II."], a:0, x:"<b>Car Ivan Asen II.</b> (poslije 1230.) dao je Dubrovčanima slobodu trgovine; povelja se čuva u Sankt Peterburgu (Paskojević 2024)."},
     {q:"Kojim je pismom pisan Hvalov zbornik (~1404.)?", o:["diplomatičkom minuskulom", "ćiriličnim ustavom", "glagoljičnim kurzivom", "bosaničkim brzopisom"], a:1, x:"Hvalov zbornik pisan je <b>ćiriličnim ustavom</b> i najvjerojatnije je nastao u Hrvojevoj rezidenciji u Omišu, prepisan s glagoljičnoga predloška (Paskojević 2024)."},
   ],
+  opcenito: [
+    {q:"Koje je slavensko pismo starije: glagoljica ili ćirilica?", o:["ćirilica", "glagoljica", "nastala su istodobno", "bosančica"], a:1, x:"Prevladava uvjerenje da je <b>glagoljica</b> najstarije slavensko pismo. Jedan od argumenata za veću starinu glagoljice jest to što je ćirilica slova za glasove kojih nije bilo u grčkome popunila upravo iz glagoljičkoga inventara (Hrvatska enciklopedija, <i>glagoljica</i>).", img:"slike/kijevski-listici.jpg", cap:"Kijevski listići (potkraj 10. stoljeća), najstariji starocrkvenoslavenski liturgijski spomenik, pisan glagoljicom."},
+    {q:"Ćirilica nosi ime po Ćirilu (Konstantinu Filozofu). Kako je ona zapravo nastala?", o:["sastavio ju je sam Ćiril 863. za moravsku misiju", "nastala je postupno, kroz povijesni proces prilagođavanja grčkoga pisma slavenskom glasovnom sustavu", "sastavio ju je Metod nakon Ćirilove smrti", "nastala je preoblikovanjem latinice"], a:1, x:"Iako nosi ime po Ćirilu, ćirilica nije djelo jednoga autora. Prevladava mišljenje da je nastala kao rezultat <b>povijesnoga procesa</b>, tj. <b>postupnoga prilagođavanja grčkoga pisma slavenskom fonološkom sustavu</b> (Damjanović 2012; Hrvatska enciklopedija, <i>ćirilica</i>). Ćiril je, prema prevladavajućem mišljenju, sastavio glagoljicu."},
+    {q:"U kojoj se državi ćirilica prvi put počela koristiti kao službeno pismo?", o:["u Velikoj Moravskoj", "u Bizantu", "u Bugarskom Carstvu", "u Kijevskoj Rusiji"], a:2, x:"Nakon dugotrajna prilagođivanja grčkoga pisanja slavenskom glasovnom sustavu ćirilica je kodificirana kao <b>službeno bugarsko pismo</b> nakon državno-crkvenoga sabora u Preslavu (Hrvatska enciklopedija, <i>ćirilica</i>; Damjanović 2012)."},
+    {q:"Na temelju kojega je pisma ćirilica najvećim dijelom oblikovana?", o:["na temelju latinice", "na temelju grčke uncijale, uz utjecaj glagoljice", "na temelju hebrejskoga pisma", "na temelju glagoljice"], a:1, x:"Ćirilica je nastala postupnim prilagođavanjem grčkoga pisma slavenskom glasovnom sustavu. Uzor joj je bila <b>grčka uncijala</b> (svečano pismo velikih, zaobljenih slova pisanih između dviju crta), a slova za slavenske glasove kojih nije bilo u grčkome preuzeta su ili prilagođena iz <b>glagoljice</b> (Damjanović 2012; Paskojević 2024; Hrvatska enciklopedija)."},
+    {q:"Koliko je slova ćirilična azbuka preuzela izravno iz grčke uncijale?", o:["12", "19", "26", "38"], a:2, x:"Pri sastavljanju ćirilične azbuke <b>26 slova</b> preuzeto je izravno iz grčke uncijale (svečano pismo velikih, zaobljenih slova pisanih između dviju crta) (Hrvatska enciklopedija, <i>ćirilica</i>)."},
+    {q:"Kada je oblikovana ćirilica?", o:["sredinom 8. stoljeća", "potkraj 9. ili početkom 10. stoljeća", "u 11. stoljeću", "u 12. stoljeću"], a:1, x:"Ćirilični ustav, najstariji oblik ćirilice, oblikovan je <b>potkraj 9. stoljeća</b> (Paskojević 2024), a najstariji ćirilični natpisi potječu iz 10. stoljeća (Damjanović 2012)."},
+    {q:"Ćirilica nosi ime po Konstantinu Filozofu (Ćirilu). Koje je pismo, prema prevladavajućem mišljenju, on zapravo sastavio?", o:["ćirilicu", "glagoljicu", "grčku uncijalu", "bosančicu"], a:1, x:"Konstantin Filozof sastavio je <b>glagoljicu</b>, sredinom 9. stoljeća, prije 863. Njegovo se ime ipak vezuje uz ćirilicu, iako ona nije njegovo djelo (Hrvatska enciklopedija, <i>glagoljica</i> i <i>ćirilica</i>).", img:"slike/sv-ciril-solun.jpg", cap:"Prikaz sv. Ćirila kod hrama sv. Ćirila i Metoda u Solunu."},
+    {q:"Kamo je prešla većina Metodovih učenika nakon što su protjerani iz Moravske?", o:["u Rim", "u Bugarsko Carstvo", "u Kijevsku Rusiju", "u Dalmaciju"], a:1, x:"Nakon Metodove smrti (885.) njegovi su učenici početkom 886. zlostavljani i protjerani, a većina je iz Moravske prešla u <b>Bugarsko Carstvo</b> (Hrvatska enciklopedija, <i>Ćiril i Metod</i>)."},
+    {q:"Koji se natpis danas smatra najstarijim poznatim ćiriličnim natpisom?", o:["Samuilov natpis", "Krepčanski natpis", "Humačka ploča", "Povaljski prag"], a:1, x:"Najstarijim poznatim ćiriličnim natpisom smatra se <b>Krepčanski natpis iz 921.</b> Donedavno se kao najstariji navodio Samuilov natpis iz 992. – 993. (Damjanović 2012; Hrvatska enciklopedija).", img:"slike/krepcanski-natpis.jpg", cap:"Krepčanski natpis (921.), najstariji poznati ćirilični natpis, uklesan u stijenu špiljskoga samostana kraj sela Krepče u Bugarskoj."},
+    {q:"Kada se naziv <i>ćirilica</i> prvi put spominje?", o:["863. u Moravskoj", "1047. u zapisu ruskoga popa Upira Lihoga", "1189. u Povelji Kulina bana", "1512. u Ofičju Blažene Djeve Marije"], a:1, x:"Naziv <i>ćirilica</i> prvi se put spominje <b>1047.</b> u zapisu ruskoga popa <b>Upira Lihoga</b>, sačuvanom u mlađem prijepisu (Hrvatska enciklopedija, <i>ćirilica</i>)."},
+    {q:"Kojim je od navedenih naroda ćirilica danas službeno pismo?", o:["Bugarima, Rusima, Ukrajincima, Bjelorusima, Srbima i Makedoncima", "Poljacima, Česima i Slovacima", "Litavcima, Latvijcima i Estoncima", "Rumunjima, Mađarima i Albancima"], a:0, x:"Ćirilica je službeno pismo <b>Bjelorusa, Bugara, Crnogoraca, Makedonaca, Rusa, Srba i Ukrajinaca</b> (Hrvatska enciklopedija, <i>ćirilica</i>)."},
+    {q:"Koji je tip ćiriličnoga pisma kronološki najstariji?", o:["ustav", "poluustav", "brzopis (skoropis)", "minuskula"], a:0, x:"Starija paleografija dijeli ćirilicu na ustav, poluustav i brzopis (skoropis). <b>Ustav</b> je kronološki najstariji i prvi osnovni oblik ćiriličnoga pisma u svim kulturama koje se njime koriste (Paskojević 2024)."},
+    {q:"Kojim je putem ćirilica, prema prevladavajućem mišljenju, stigla u hrvatske prostore?", o:["sjevernim putem, iz Moravske", "južnim putem", "zapadnim putem, iz Italije", "morskim putem, iz Carigrada"], a:1, x:"Drži se da je ćirilica u hrvatske prostore stigla tzv. <b>južnim putem</b>, a u hrvatskim zemljama javlja se u 11. – 12. stoljeću (Damjanović 2012; Hrvatska enciklopedija)."},
+    {q:"Po čijem uzoru ćirilica označava brojeve slovima?", o:["po latinskom uzoru", "po grčkom uzoru", "po arapskom uzoru", "ćirilica nema brojevnih vrijednosti slova"], a:1, x:"U ćirilici se pri označavanju brojeva dosljedno slijedi <b>grčki uzor</b>: slova za slavenske glasove ne označavaju brojeve. Glagoljica ima vlastiti, dosljedan brojevni sustav (Hrvatska enciklopedija, <i>glagoljica</i>)."},
+  ],
 };
 
 // ==================== LOGIC ====================
 const ALL_TOPICS = Object.keys(QUESTIONS);
+const TOPIC_LABELS = {opcenito:'Općenito o ćirilici', povijest:'Ćirilica u Hrvatskoj', spomenici:'Spomenici'};
 let currentTopic = null, currentIndex = 0, score = 0, shuffledQuestions = [];
 
 function shuffle(a) { const r = [...a]; for (let i = r.length-1; i>0; i--) { const j = Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; } return r; }
@@ -119,6 +130,7 @@ function backToStart() {
   document.getElementById('quizArea').classList.add('hidden');
   document.getElementById('matchingArea').classList.add('hidden');
   document.getElementById('letterQuizArea').classList.add('hidden');
+  document.getElementById('namesArea').classList.add('hidden');
   document.getElementById('endScreen').classList.remove('show');
   document.getElementById('endScreen').style.display = 'none';
   document.getElementById('feedbackModal').classList.add('hidden');
@@ -128,14 +140,14 @@ function backToStart() {
 function renderQuestion() {
   if (currentIndex >= shuffledQuestions.length) { showEndScreen(); return; }
   const item = shuffledQuestions[currentIndex];
-  const icons = {povijest:'ikone/povijest.png', spomenici:'ikone/spomenici.png'};
+  const icons = {povijest:'ikone/grafija.png', spomenici:'ikone/spomenici.png', opcenito:'ikone/povijest.png'};
   const card = document.getElementById('questionCard');
   card.className = 'q-card topic-' + item.topic;
   // Shuffle answer options and remap correct index
   const optIndices = shuffle([...item.o.keys()]);
   item.shuffledA = optIndices.indexOf(item.a);
   card.innerHTML = `<div class="inner">
-    <div class="q-num">${icons[item.topic] ? `<img src="${icons[item.topic]}" alt="" class="q-num-icon">` : ''} ${item.topic.charAt(0).toUpperCase()+item.topic.slice(1)} · ${currentIndex+1}/${shuffledQuestions.length}</div>
+    <div class="q-num">${icons[item.topic] ? `<img src="${icons[item.topic]}" alt="" class="q-num-icon">` : ''} ${TOPIC_LABELS[item.topic] || (item.topic.charAt(0).toUpperCase()+item.topic.slice(1))} · ${currentIndex+1}/${shuffledQuestions.length}</div>
     <div class="q-text">${item.q}</div>
     <div class="opts">${optIndices.map((oi,pos)=>`<div class="opt" onclick="selectAnswer(${pos})"><span class="letter">${'ABCD'[pos]}.</span><span>${item.o[oi]}</span></div>`).join('')}</div>
   </div>`;
@@ -147,6 +159,7 @@ function imgHTML(item) {
   return `<div class="q-img-wrap"><img src="${item.img}" alt="Ilustracija" class="q-img" onclick="openLightbox('${item.img}', '${item.cap || ''}')"><div class="q-img-cap">${item.cap || ''}</div></div>`;
 }
 
+let lightboxRestoreModal = false;
 function openLightbox(src, cap) {
   const lb = document.getElementById('lightbox');
   const img = document.getElementById('lightboxImg');
@@ -154,8 +167,10 @@ function openLightbox(src, cap) {
   img.onerror = function() { lb.classList.remove('hidden'); resetZoom(); };
   img.src = src;
   document.getElementById('lightboxCap').textContent = cap;
-  // Hide modal behind so it doesn't show through
-  document.getElementById('feedbackModal').classList.add('hidden');
+  // Hide modal behind so it doesn't show through (remember if it was open)
+  const fm = document.getElementById('feedbackModal');
+  lightboxRestoreModal = !fm.classList.contains('hidden');
+  fm.classList.add('hidden');
 }
 
 // ===== LIGHTBOX ZOOM / PAN / PINCH =====
@@ -281,8 +296,9 @@ initLightboxEvents();
 function closeLightbox() {
   document.getElementById('lightbox').classList.add('hidden');
   resetZoom();
-  // Restore the modal with the explanation
-  document.getElementById('feedbackModal').classList.remove('hidden');
+  // Restore the modal with the explanation only if it was open before
+  if (lightboxRestoreModal) document.getElementById('feedbackModal').classList.remove('hidden');
+  lightboxRestoreModal = false;
 }
 
 function showModal(type, html) {
@@ -347,8 +363,9 @@ function showEndScreen() {
   else if (pct >= 50) { cls='ok'; msg='Dobro! 📚 Još malo učenja i ide.'; }
   else { cls='poor'; msg='Ne odustaj! 💪 Nauči i pokušaj opet.'; }
   soundFinish(pct >= 70);
-  const otherTopic = currentTopic === 'povijest' ? 'spomenici' : 'povijest';
-  const otherLabel = otherTopic === 'povijest' ? 'Opća povijest' : 'Spomenici';
+  const nextTopicMap = {opcenito:'povijest', povijest:'spomenici', spomenici:'opcenito', mix:'opcenito'};
+  const otherTopic = nextTopicMap[currentTopic] || 'opcenito';
+  const otherLabel = {opcenito:'Općenito o ćirilici', povijest:'Ćirilica u Hrvatskoj', spomenici:'Spomenici'}[otherTopic];
   end.innerHTML = `<h2 style="color:var(--accent);">🏁 Kraj kviza!</h2>
     <div class="big-score ${cls}">${score} / ${shuffledQuestions.length}</div>
     <div class="end-pct">${pct}%</div><p class="end-msg">${msg}</p>
@@ -719,3 +736,113 @@ function lqShowEnd() {
     <button class="mix-btn" style="background:var(--border);color:var(--text);margin-top:.5rem;" onclick="backToStart()">← odaberi drugu temu</button>`;
 }
 
+// ==================== IMPRESSUM ====================
+function openImpressum() {
+  const m = document.getElementById('impressumModal');
+  m.classList.remove('hidden', 'closing');
+  m.querySelector('.modal-box').scrollTop = 0;
+}
+function closeImpressum() {
+  document.getElementById('impressumModal').classList.add('hidden');
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !document.getElementById('impressumModal').classList.contains('hidden')) closeImpressum();
+});
+
+// ==================== NAZIVI (višestruki odabir) ====================
+const NAMES_GAME = {
+  q: "Kojim se sve nazivima označavala hrvatska ćirilica (bosančica)? Označi <b>sve</b> točne nazive pa pritisni <b>Potvrdi</b>.",
+  o: [
+    {t:"harvacko pismo", ok:true},
+    {t:"arvatica", ok:true},
+    {t:"bosančica", ok:true},
+    {t:"bosanska ćirilica", ok:true},
+    {t:"hrvatsko-bosanska ćirilica", ok:true},
+    {t:"bosansko-dalmatinska ćirilica", ok:true},
+    {t:"zapadna (bosanska) ćirilica", ok:true},
+    {t:"serbska slova", ok:true},
+    {t:"poljička azbukvica (poljičica)", ok:true},
+    {t:"begovica", ok:true},
+    {t:"arebica", ok:false},
+    {t:"uglata glagoljica", ok:false},
+    {t:"grčka uncijala", ok:false},
+    {t:"hrvatska latinica", ok:false},
+    {t:"gotica", ok:false},
+  ],
+  x: `<ul class="names-expl">
+    <li><b>harvacko pismo</b> — Dmine Papalić, splitski plemić, oko 1510., za pismo kojim prepisuje Hrvatsku kroniku</li>
+    <li><b>arvatica</b> (<i>arvacko pismo</i>) — u Povaljskoj listini (1250.) i Poljičkom statutu, od pridjeva <i>harvacki</i> (hrvatski)</li>
+    <li><b>bosančica</b> — naziv je 1889. uveo Ćiro Truhelka; od svih naziva najviše je zaživio. U užem smislu označuje ćiriličnu minuskulu 15. – 19. stoljeća <span class="names-thumb" onclick="openLightbox('slike/truhelka.jpg','Ćiro Truhelka (1865. – 1942.)')"><img src="slike/truhelka.jpg" alt="Ćiro Truhelka"></span></li>
+    <li><b>bosanska ćirilica</b> — Franjo Rački, 19. stoljeće <span class="names-thumb" onclick="openLightbox('slike/racki.png','Franjo Rački')"><img src="slike/racki.png" alt="Franjo Rački"></span></li>
+    <li><b>hrvatsko-bosanska ćirilica</b> — Ivan Kukuljević Sakcinski, 19. stoljeće <span class="names-thumb" onclick="openLightbox('slike/kukuljevic-sakcinski.png','Ivan Kukuljević Sakcinski')"><img src="slike/kukuljevic-sakcinski.png" alt="Ivan Kukuljević Sakcinski"></span></li>
+    <li><b>bosansko-dalmatinska ćirilica</b> — Vatroslav Jagić, 19. stoljeće <span class="names-thumb" onclick="openLightbox('slike/jagic.jpg','Vatroslav Jagić (1838. – 1923.)')"><img src="slike/jagic.jpg" alt="Vatroslav Jagić"></span></li>
+    <li><b>zapadna (bosanska) ćirilica</b> — Stjepan Ivšić, 20. stoljeće <span class="names-thumb" onclick="openLightbox('slike/ivsic.jpg','Stjepan Ivšić')"><img src="slike/ivsic.jpg" alt="Stjepan Ivšić"></span></li>
+    <li><b>serbska slova</b> — Matija Divković, 17. stoljeće</li>
+    <li><b>poljička azbukvica</b> ili <b>poljičica</b> — narod u Poljicima (zabilježio Frane Ivanišević)</li>
+    <li><b>begovica</b> — tako su je nazivali muslimani u Bosni</li>
+  </ul>
+  <p class="names-note">Zanimljivo: Poljičani su svoje ćirilično pismo nazivali i <i>glagoljicom</i>, a u Dubrovniku je naziv <i>presbyteri chiurillice</i> označavao popove glagoljaše (Damjanović 2012).</p>
+  <p class="names-note">Netočni su ponuđeni nazivi: <i>arebica</i> (bosanskohercegovačko pismo na arapskoj osnovi), <i>uglata glagoljica</i> (tip glagoljice), <i>grčka uncijala</i> (grčko pismo, uzor ćirilici), <i>hrvatska latinica</i> i <i>gotica</i> (latinično pismo).</p>`
+};
+let namesOrder = [], namesSel = new Set(), namesDone = false;
+
+function startNames() {
+  namesOrder = shuffle([...NAMES_GAME.o.keys()]);
+  namesSel = new Set(); namesDone = false;
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('endScreen').style.display = 'none';
+  document.getElementById('namesArea').classList.remove('hidden');
+  renderNames();
+}
+
+function renderNames() {
+  const total = NAMES_GAME.o.filter(o => o.ok).length;
+  let result = '';
+  if (namesDone) {
+    const hit = [...namesSel].filter(i => NAMES_GAME.o[i].ok).length;
+    const bad = [...namesSel].filter(i => !NAMES_GAME.o[i].ok).length;
+    const perfect = hit === total && bad === 0;
+    result = `<div class="names-result ${perfect ? 'good' : 'poor'}">${perfect ? '🎉 Sve točno!' : 'Rješenje'}<span>Točno označenih: <b>${hit}/${total}</b> · pogrešno označenih: <b>${bad}</b></span></div>
+      <div class="names-legend"><span class="lg correct">označeno točno</span><span class="lg missed">propušteno</span><span class="lg wrong">pogrešno označeno</span></div>`;
+  }
+  const opts = namesOrder.map(i => {
+    const o = NAMES_GAME.o[i], sel = namesSel.has(i);
+    let cls = 'opt name-opt';
+    if (!namesDone) { if (sel) cls += ' picked'; }
+    else if (o.ok && sel) cls += ' correct';
+    else if (o.ok) cls += ' missed';
+    else if (sel) cls += ' wrong';
+    else cls += ' faded';
+    const mark = namesDone ? (o.ok ? (sel ? '✓' : '!') : (sel ? '✗' : '')) : (sel ? '✓' : '');
+    return `<div class="${cls}" ${namesDone ? '' : `onclick="toggleName(${i})"`}><span class="name-box">${mark}</span><span>${o.t}</span></div>`;
+  }).join('');
+  document.getElementById('namesCard').innerHTML = `<div class="inner">
+    <div class="q-num"><img src="ikone/naziv.png" alt="" class="q-num-icon"> Nazivi</div>
+    <div class="q-text">${NAMES_GAME.q}</div>
+    ${result}
+    <div class="names-grid">${opts}</div>
+    ${namesDone ? `<div class="names-explanation"><h3>Nazivi hrvatske ćirilice</h3>${NAMES_GAME.x}</div>` : ''}
+  </div>`;
+  const btn = document.getElementById('namesSubmit');
+  btn.textContent = namesDone ? '🔄 Pokušaj ponovo' : 'Potvrdi';
+  btn.disabled = !namesDone && namesSel.size === 0;
+}
+
+function toggleName(i) {
+  if (namesDone) return;
+  namesSel.has(i) ? namesSel.delete(i) : namesSel.add(i);
+  renderNames();
+}
+
+function submitNames() {
+  if (namesDone) { startNames(); return; }
+  if (namesSel.size === 0) return;
+  namesDone = true;
+  const total = NAMES_GAME.o.filter(o => o.ok).length;
+  const hit = [...namesSel].filter(i => NAMES_GAME.o[i].ok).length;
+  const bad = namesSel.size - hit;
+  (hit === total && bad === 0) ? soundCorrect() : soundWrong();
+  if (hit === total && bad === 0) soundFinish(true);
+  renderNames();
+  document.querySelector('.main-wrap').scrollTop = 0;
+}

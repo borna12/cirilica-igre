@@ -120,6 +120,7 @@ header p { opacity: .8; font-style: italic; font-size: clamp(.75rem, 1.3vw, .9re
 .q-card.topic-povijest::after  { background-image: url("povelja-kulina-bana.jpg"); }
 .q-card.topic-abeceda::after   { background-image: url("humacka-ploca.jpg"); }
 .q-card.topic-spomenici::after { background-image: url("bosancica-abeceda.png"); }
+.q-card.topic-opcenito::after  { background-image: url("slike/krepcanski-manastir.jpg"); }
 .q-card.topic-nazivi::after    { background-image: url("hvalov-zbornik.jpg"); }
 
 .q-card::before {
@@ -481,3 +482,56 @@ body, .q-text, .q-num, .opt, .feedback, .match-tile, .drag-tile, .drag-group {
   .match-tile .lat { font-size: 1rem; }
   .match-col-header { font-size: .7rem; }
 }
+
+/* ===== IMPRESSUM ===== */
+.impressum-btn {
+  background: transparent; color: var(--accent); border: 2px solid var(--border); border-radius: 8px;
+  padding: clamp(.5rem, 1.2vh, .7rem) clamp(1rem, 2.5vw, 1.6rem); font-weight: 700; cursor: pointer;
+  font-size: clamp(.85rem, 1.4vw, .95rem); transition: .15s;
+}
+.impressum-btn:active { transform: scale(.96); }
+@media (hover: hover) { .impressum-btn:hover { border-color: var(--gold); background: var(--hover); } }
+.impressum-box { max-width: 720px; text-align: left; position: relative; line-height: 1.5; }
+.impressum-box h2 { color: var(--accent); margin-bottom: .8rem; padding-right: 2rem; }
+.impressum-box h3 { color: var(--accent); font-size: 1.05rem; margin: 1.3rem 0 .5rem; padding-top: .8rem; border-top: 1px solid var(--border); }
+.impressum-list dt { font-weight: 700; color: var(--muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .04em; margin-top: .6rem; }
+.impressum-list dd { margin: .15rem 0 0; }
+.impressum-box a { color: var(--accent2); overflow-wrap: anywhere; }
+.biblio { list-style: none; padding: 0; margin: 0; font-size: .9rem; }
+.biblio li { padding-left: 1.6rem; text-indent: -1.6rem; margin-bottom: .55rem; }
+.impressum-close {
+  position: absolute; top: .8rem; right: .8rem; width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; font-size: 1rem;
+}
+.impressum-actions { text-align: center; margin-top: 1.2rem; }
+
+/* ===== NAZIVI (višestruki odabir) ===== */
+.names-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .6rem; }
+.name-opt { font-size: 1rem; padding: .75rem 1rem; }
+.name-box {
+  width: 1.4rem; height: 1.4rem; flex-shrink: 0; border: 2px solid var(--border); border-radius: 5px;
+  display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: .9rem; background: #fff;
+}
+.name-opt.picked .name-box { background: var(--accent); border-color: var(--accent); color: #fff; }
+.name-opt.correct .name-box { background: var(--correct); border-color: var(--correct); color: #fff; }
+.name-opt.wrong .name-box { background: var(--wrong); border-color: var(--wrong); color: #fff; }
+.name-opt.missed { border: 2px dashed var(--correct) !important; background: #f3faf3; }
+.name-opt.missed .name-box { border-color: var(--correct); color: var(--correct); }
+.name-opt.faded { opacity: .45; }
+.names-area-disabled, #namesSubmit:disabled { opacity: .5; cursor: not-allowed; }
+.names-result { text-align: center; font-weight: 700; font-size: 1.15rem; margin-bottom: .6rem; }
+.names-result span { display: block; font-weight: 400; font-size: .95rem; color: var(--muted); margin-top: .2rem; }
+.names-result.good { color: var(--correct); }
+.names-result.poor { color: var(--accent); }
+.names-legend { display: flex; flex-wrap: wrap; gap: .4rem .9rem; justify-content: center; font-size: .8rem; color: var(--muted); margin-bottom: .8rem; }
+.names-legend .lg::before { content: ''; display: inline-block; width: .8rem; height: .8rem; border-radius: 3px; margin-right: .3rem; vertical-align: -1px; }
+.names-legend .lg.correct::before { background: var(--correct); }
+.names-legend .lg.missed::before { border: 2px dashed var(--correct); width: .6rem; height: .6rem; }
+.names-legend .lg.wrong::before { background: var(--wrong); }
+.names-explanation { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: left; }
+.names-explanation h3 { color: var(--accent); font-size: 1.05rem; margin-bottom: .5rem; }
+.names-expl { padding-left: 1.1rem; line-height: 1.5; }
+.names-expl li { margin-bottom: .45rem; }
+.names-thumb { display: inline-block; vertical-align: middle; margin-left: .3rem; cursor: zoom-in; }
+.names-thumb img { height: 34px; width: 34px; object-fit: cover; border-radius: 50%; border: 1px solid var(--border); }
+.names-note { margin-top: .7rem; font-size: .92rem; color: var(--muted); line-height: 1.5; }
