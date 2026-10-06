@@ -406,12 +406,9 @@ const LETTER_PAIRS = [
   {c:'Х х', l:'H h',  g:'h'},
   {c:'Ц ц', l:'C c',  g:'c'},
   {c:'Ч ч', l:'Č č', g:'C'},
-  {c:'Ш ш', l:'Š š', g:'S'},
+  {c:'Ш ш', l:'Š š', g:'š'},
   {c:'Ђ ђ', l:'Đ đ', g:'J'},
   {c:'Ћ ћ', l:'Ć ć', g:'J'},
-  {c:'Љ љ', l:'Lj lj', g:'lj'},
-  {c:'Њ њ', l:'Nj nj', g:'nj'},
-  {c:'Џ џ', l:'Dž dž', g:'dZ'},
   {c:'Ј ј', l:'J j',  g:'j'}
 ];
 let matchMode = 'lat', matchSelected = null, matchPairs = [], matchFound = 0;
@@ -431,7 +428,7 @@ function startMatching() {
   document.getElementById('endScreen').style.display = 'none';
   document.getElementById('matchingArea').classList.remove('hidden');
   matchSelected = null; matchFound = 0;
-  matchPairs = shuffleM(LETTER_PAIRS); // use all 30
+  matchPairs = shuffleM(LETTER_PAIRS); // use all 27
   if (matchMode === 'all') renderDragDrop();
   else renderMatchGrid();
   updateMatchBar();
@@ -618,7 +615,7 @@ const LETTERS = [
   {c:'П',l:'п',lat:'P p', g:'p', gr:'Π π'},{c:'Р',l:'р',lat:'R r', g:'r', gr:'Ρ ρ'},{c:'С',l:'с',lat:'S s', g:'s', gr:'Σ σ'},
   {c:'Т',l:'т',lat:'T t', g:'t', gr:'Τ τ'},{c:'Ћ',l:'ћ',lat:'Ć ć', g:'J', gr:'—'},{c:'У',l:'у',lat:'U u', g:'u', gr:'Υ υ'},
   {c:'Ф',l:'ф',lat:'F f', g:'f', gr:'Φ φ'},{c:'Х',l:'х',lat:'H h', g:'h', gr:'Χ χ'},{c:'Ц',l:'ц',lat:'C c', g:'c', gr:'—'},
-  {c:'Ч',l:'ч',lat:'Č č', g:'C', gr:'—'},{c:'Џ',l:'џ',lat:'Dž dž', g:'dZ', gr:'—'},{c:'Ш',l:'ш',lat:'Š š', g:'S', gr:'—'},
+  {c:'Ч',l:'ч',lat:'Č č', g:'C', gr:'—'},{c:'Џ',l:'џ',lat:'Dž dž', g:'dZ', gr:'—'},{c:'Ш',l:'ш',lat:'Š š', g:'š', gr:'—'},
 ];
 const LQ_TOTAL = 15;
 let lqQuestions = [], lqIdx = 0, lqScore = 0, lqTimer = null, lqAnswered = false;
@@ -821,6 +818,7 @@ function renderNames() {
     <div class="q-text">${NAMES_GAME.q}</div>
     ${result}
     <div class="names-grid">${opts}</div>
+    <div class="names-submit-wrap"><button class="next-btn show" id="namesSubmit" onclick="submitNames()"></button></div>
     ${namesDone ? `<div class="names-explanation"><h3>Nazivi hrvatske ćirilice</h3>${NAMES_GAME.x}</div>` : ''}
   </div>`;
   const btn = document.getElementById('namesSubmit');

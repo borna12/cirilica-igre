@@ -119,9 +119,9 @@ header p { opacity: .8; font-style: italic; font-size: clamp(.75rem, 1.3vw, .9re
 }
 .q-card.topic-povijest::after  { background-image: url("povelja-kulina-bana.jpg"); }
 .q-card.topic-abeceda::after   { background-image: url("humacka-ploca.jpg"); }
-.q-card.topic-spomenici::after { background-image: url("bosancica-abeceda.png"); }
+.q-card.topic-spomenici::after { background-image: url("slike/povelja-kulina-bana.jpg"); }
 .q-card.topic-opcenito::after  { background-image: url("slike/krepcanski-manastir.jpg"); }
-.q-card.topic-nazivi::after    { background-image: url("hvalov-zbornik.jpg"); }
+.q-card.topic-nazivi::after    { background-image: url("slike/truhelka.jpg"); }
 
 .q-card::before {
   content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 3px;
@@ -535,3 +535,7 @@ body, .q-text, .q-num, .opt, .feedback, .match-tile, .drag-tile, .drag-group {
 .names-thumb { display: inline-block; vertical-align: middle; margin-left: .3rem; cursor: zoom-in; }
 .names-thumb img { height: 34px; width: 34px; object-fit: cover; border-radius: 50%; border: 1px solid var(--border); }
 .names-note { margin-top: .7rem; font-size: .92rem; color: var(--muted); line-height: 1.5; }
+.names-submit-wrap { text-align: center; margin-top: 1.2rem; }
+/* Glagoljica u igri spajanja: FSGLA mora nadjačati .match-tile .cyr i globalni Cirilica font */
+.match-tile .gla-font, .match-tile .cyr.gla-font, .drag-tile.gla, .drag-group .dg-gla, .lq-cell-gla { font-family: 'FSGLA', sans-serif !important; font-weight: 400; }
+.match-mode-btn .mode-cyr { font-family: 'Cirilica', serif; font-size: 1.15em; }

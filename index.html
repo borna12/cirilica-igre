@@ -59,8 +59,8 @@
   <!-- MATCHING GAME -->
   <div id="matchingArea" class="quiz-area hidden">
     <div class="match-mode-bar" id="matchModeBar">
-      <button class="match-mode-btn active" data-mode="lat" onclick="setMatchMode('lat')">A ↔ Ć</button>
-      <button class="match-mode-btn" data-mode="gla" onclick="setMatchMode('gla')">Ⰰ ↔ Ć</button>
+      <button class="match-mode-btn active" data-mode="lat" onclick="setMatchMode('lat')">A ↔ <span class="mode-cyr">А</span></button>
+      <button class="match-mode-btn" data-mode="gla" onclick="setMatchMode('gla')">Ⰰ ↔ <span class="mode-cyr">А</span></button>
       <button class="match-mode-btn" data-mode="all" onclick="setMatchMode('all')">sve troje</button>
     </div>
     <div class="top-bar">
@@ -95,7 +95,6 @@
   <div id="namesArea" class="quiz-area hidden">
     <div id="namesCard" class="q-card topic-nazivi"><div class="inner"></div></div>
     <div class="controls">
-      <button class="next-btn show" id="namesSubmit" onclick="submitNames()">Potvrdi</button>
       <button class="back-btn" onclick="backToStart()">← natrag</button>
     </div>
   </div>
